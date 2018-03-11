@@ -18,6 +18,7 @@ var vm = new Vue({
                 findText(){
                   console.log("find: "+this.search);
                   livesearch = this.search;
+
                   answers = this.surveyQJson.find("1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.",
                             function(){
                               var re=new RegExp(livesearch,"gi");
@@ -25,12 +26,26 @@ var vm = new Vue({
                               return this.match(re);
                             }).parent();
                   //console.log(answers);
+                  this.hideAll();
+                  _this = this;
                   answers.each(function (index, path, value) {
                       console.log(value.Organization);
                       console.log(value["Respondent ID"]);
+                      _this.showId(value["Respondent ID"]);
                   });
                   //return this.sibling('Organization')
-
+                },
+                showId: function(id){
+                  _.each(this.survey, function(entry){
+                    if (id==entry["Respondent ID"]){
+                      entry.show=1;
+                    }
+                  });
+                },
+                hideAll: function(){
+                  _.each(this.survey, function(entry){
+                      entry.show=0;
+                  });
                 },
                 getJson: function(){
                   var _this = this;

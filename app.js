@@ -1,13 +1,24 @@
 var vm = new Vue({
             el: '#vue-orgs',
             data:{
+                search:'',
                 survey:null,
               },
+              watch: {
+              // whenever search changes, this function will run
+              search: function () {
+                this.findText()
+              }
+            },
             created: function() {
                   console.log("created!");
                   this.getJson();
                 },
             methods: {
+                findText(){
+                  console.log("find: "+this.search);
+                  //TODO find in the json
+                },
                 getJson: function(){
                   console.log("in getJson!");
                   var _this = this;

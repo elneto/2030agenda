@@ -16,9 +16,11 @@ var vm = new Vue({
                 },
             methods: {
                 findText(){
-                  console.log("find: "+this.search);
-                  livesearch = this.search;
+                  //console.log("find: "+this.search);
                   this.unhighlightAll("1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.");
+                  if (this.search==='') return;
+                  livesearch = this.search;
+
                   //finds all answers that cointain that question
                   answers = this.surveyQJson.find("1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.",
                             function(){
@@ -50,19 +52,20 @@ var vm = new Vue({
                 },
                 unhighlightAll: function(question){
                   _.each(this.survey, function(entry){
-                    //console.log(entry[question]);
-
-                      console.log(entry[question]);
-                      entry[question] = entry[question].replace('<span class="highlight">','');
-                      entry[question] = entry[question].replace('<\/span>','');
+                    var re=new RegExp('\<span class\=\"highlight\"\>',"gi");
+                    entry[question] = entry[question].replace(re,'');
+                    var re2=new RegExp('\<\/span\>',"gi");
+                    entry[question] = entry[question].replace(re2,'');
                   });
                 },
                 highlightId: function(id, question, word){
                   _.each(this.survey, function(entry){
                     if (id==entry["Respondent ID"]){
-                      //todo use regexp instead
                       //entry.show=1;
-                      entry[question] = entry[question].replace(word,'<span class="highlight">'+word+'</span>');
+                      //todo: somehow reuse the regexp
+                      var re=new RegExp(word,"gi");
+                      //todo: replace with match so the case is not low
+                      entry[question] = entry[question].replace(re,'<span class="highlight">'+word+'</span>');
                       //console.log(entry[question]);
                     }
                   });

@@ -17,6 +17,7 @@ var vm = new Vue({
             methods: {
                 findText(){
                   //console.log("find: "+this.search);
+                  this.showAll();
                   this.unhighlightAll("1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.");
                   if (this.search==='') return;
                   livesearch = this.search;
@@ -73,6 +74,11 @@ var vm = new Vue({
                 hideAll: function(){
                   _.each(this.survey, function(entry){
                       entry.show=0;
+                  });
+                },
+                showAll: function(){
+                  _.each(this.survey, function(entry){
+                      entry.show=1;
                   });
                 },
                 getJson: function(){

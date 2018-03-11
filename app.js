@@ -1,7 +1,6 @@
 var vm = new Vue({
             el: '#vue-orgs',
             data:{
-                question:"Pregunta 1",
                 survey:null,
               },
             created: function() {
@@ -12,9 +11,9 @@ var vm = new Vue({
                 getJson: function(){
                   console.log("in getJson!");
                   var _this = this;
-                  $.getJSON('survey_results.json',function(res){
+                  $.getJSON('survey_results_min.json',function(res){
                     console.log("in getJson de jQuery!");
-                    console.log(res);
+                    //console.log(res);
                     _this.survey = res;
                   }).done(function() {
                     console.log( "second success" );

@@ -1,6 +1,14 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
 .highlight{
   background-color: yellow;
 }
 p{
   color:"#222";
+}
+.alogo{
+  max-width:30px;
+  margin: 4px 1em 0 0;
 }

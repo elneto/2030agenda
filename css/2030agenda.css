@@ -1,6 +1,14 @@
 .container {
-  max-width: 960px;
+  max-width: 980px;
   margin: 0 auto;
+  background: white;
+  padding: 1em 3em;
+}
+
+.container_empty {
+  max-width: 980px;
+  margin: 0 auto;
+  align-self: center;
 }
 
 .highlight {
@@ -18,11 +26,12 @@ p {
 
 section.module.parallax-1 {
   background-image: url(../img/world3.jpg);
+  height: 600px;
 }
 
 section.module.parallax h1 {
   font-size: 4em;
-  padding-top: 2em;
+  padding-top: 1em;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
 }
@@ -35,8 +44,8 @@ section.module.parallax h2 {
 }
 
 #sdgwheel {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
 }
 
 #menu_container {

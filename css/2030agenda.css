@@ -1,14 +1,48 @@
 .container {
-    max-width: 960px;
-    margin: 0 auto;
+  max-width: 960px;
+  margin: 0 auto;
 }
-.highlight{
+
+.highlight {
   background-color: yellow;
 }
-p{
-  color:"#222";
+
+p {
+  color: "#222";
 }
-.alogo{
-  max-width:30px;
+
+.alogo {
+  max-width: 30px;
   margin: 4px 1em 0 0;
+}
+
+section.module.parallax-1 {
+  background-image: url(../img/world3.jpg);
+}
+
+section.module.parallax h1 {
+  font-size: 4em;
+  padding-top: 2em;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+
+section.module.parallax h2 {
+  font-size: 2em;
+  text-transform: none;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+}
+
+#sdgwheel {
+  width: 52px;
+  height: 52px;
+}
+
+#menu_container {
+  background-color: black;
+}
+
+.bg-dark {
+  background-color: black !important;
 }

@@ -2,24 +2,176 @@
 <html>
 
 <head>
-   <meta charset="utf-8">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link rel="stylesheet" href="css/2030agenda.css" type="text/css">
-   <script src="https://unpkg.com/vue"></script>
-   <title>Question</title>
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-35008513-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments)
+    };
+    gtag('js', new Date());
+    gtag('config', 'UA-35008513-1');
+  </script>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://unpkg.com/vue"></script>
+  <title>2030 Agenda Online Database</title>
+  <meta name="keywords" content="Sustainable development, Future We Want, Rio+20, Green economy, sustainable development goals, Division for Sustainable Development, United Nations Conference on Sustainable Development, high-level political forum, voluntary commitments, partnerships for sustainable development, small island developing states, SIDS 2014"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://sustainabledevelopment.un.org/content/documents/sdkp.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://sustainabledevelopment.un.org/content/documents/sdkp_1060.css" />
+  <link rel="stylesheet" type="text/css" href="https://sustainabledevelopment.un.org/content/documents/sdkp_920.css" />
+  <link rel="stylesheet" type="text/css" href="https://sustainabledevelopment.un.org/content/documents/sdkp_660.css" />
+  <link rel="stylesheet" href="https://sustainabledevelopment.un.org/content/documents/css/hlpf2018.css" type="text/css">
+  <link rel="stylesheet" href="css/2030agenda.css" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Rubik:400' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-   <main role="main" class="container">
-      <div id="vue-orgs">
-         <div class="row">
-            <div clas="col-12">
-               <h2>1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.</h2>
-               <input type="text" v-model="search" class="form-control" placeholder="Search this answer" title="Search this answer">
+  <div id="skiptocontent"><a href="#maincontent" tabindex="1">skip to main content</a></div>
+  <div class="top" align="center" id="UNBarArea">
+    <div align="middle">
+      <div align="left" class="topMiddle">
+        <div style="padding-top:7px;float:left;"><img src="https://sustainabledevelopment.un.org/content/images/house.png" class="house" alt="house icon"><a href="http://www.un.org/en/index.html" target="_blank" tabindex="2">Welcome to the United Nations</a></div>
+        <div style="padding-top:7px;float:right"><a href="https://www.un.org/development/desa/en/" target="_blank" tabindex="3">Department of Economic and Social Affairs</a></div>
+      </div>
+    </div>
+  </div>
+  <div align="center" id="topBarArea" class="topBarArea">
+    <div align="middle">
+      <div align="left" class="topArea">
+        <div id="icons" class="icons">
+          <div id="useroption"><img src="https://sustainabledevelopment.un.org/content/images/loader.gif" style="width:100%;" alt="loading gif"></div>
+          <a href="#" onClick="return showHideSearch();" tabindex="5">
+            <div class="hidden">Show or hide search field</div>
+            <div class="icon_search"></div>
+          </a>
+          <a href="https://twitter.com/sustdev" target="_blank" tabindex="6">
+            <div class="hidden">Twitter</div>
+            <div class="icon_twitter"></div>
+          </a>
+          <a href="https://www.facebook.com/SustDev/" target="_blank" tabindex="7">
+            <div class="hidden">Facebook</div>
+            <div class="icon_fb"></div>
+          </a>
+        </div>
+        <a href="/" style="text-decoration:none;" tabindex="4">
+          <div class="hidden">Sustainable development knowledge platform</div>
+          <img id="unLogo" src="https://sustainabledevelopment.un.org/content/images/unlogo.png" class="unLogo" alt="United Nations logo">
+          <div id="logoText" class="logoText">
+            <div class="sdText">Sustainable development</div>
+            <div class="kpText">knowledge platform</div>
+          </div>
+        </a>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+  <div id="menuBarArea" class="menuBarArea" align="middle">
+    <div class="menuArea">
+      <a href="#" id="miniNavLink">
+        <div class="menuOption"><img style="border:0px;" src="https://sustainabledevelopment.un.org/images/mininav.png" alt="mini navigation icon"></div>
+      </a>
+      <div id="theTopMenu">
+        <a href="/ ">
+          <div class="menu">Home</div>
+        </a>
+        <a href="/hlpf">
+          <div class="menuOn">High-level Political Forum</div>
+        </a>
+        <a href="/memberstates">
+          <div class="menu">States</div>
+        </a>
+        <a href="/topics/sids">
+          <div class="menu">SIDS</div>
+        </a>
+        <a href="/sdgs">
+          <div class="menu">SDGs</div>
+        </a>
+        <a href="/topics">
+          <div class="menu">Topics</div>
+        </a>
+        <a href="/unsystem">
+          <div class="menu">UN System</div>
+        </a>
+        <a href="/mgos">
+          <div class="menu">Stakeholder Engagement</div>
+        </a>
+        <a href="/sdinaction">
+          <div class="menu">Partnerships</div>
+        </a>
+        <a href="/resourcelibrary">
+          <div class="menu">Resources</div>
+        </a>
+        <a href="/about">
+          <div class="menu">About</div>
+        </a>
+      </div>
+    </div>
+    <div id="searchbox" class="searchbox">
+      <form method="get" action="/index.php" style="margin: 0px; padding: 0px;">
+        <div style="padding:30px;">
+          <input type="hidden" name="menu" value="1629">
+          <input type="text" name="str" placeholder="Search" class="searchinput" title="search" aria-label="Search">
+          <input type="submit" class="searchbutton" value="Search">
+        </div>
+      </form>
+    </div>
+    <div id="accountbox" class="accountbox">
+    </div>
+  </div>
+  <div align="center" class="mainArea">
+    <div align="middle">
+      <div align="left" class="innerArea">
+        <section class="module parallax parallax-1">
+          <div class="container">
+            <h1 class="thetitle"><img src="https://sustainabledevelopment.un.org/content/images/hlpf2018/sdgwheel.png" alt="SDGs wheel" id="sdgwheel">2030 Agenda <br>Online Database</h1>
+            <h2 class="hidden-xs-down lead">UN System Implementation of <br>the 2030 Agenda and the SDGs</h2>
+          </div>
+          <div id="menu_container" data-spy="affix" data-offset-top="625">
+            <div id="hlpf_menu">
+              <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                 </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/hlpf/2018">Introduction <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                      <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions</a>
+                      <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item nav-link bg-dark" href="#">Question 1</a>
+                        <a class="dropdown-item nav-link bg-dark" href="#">Question 2</a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown ">
+                      <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizations</a>
+                      <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item nav-link bg-dark" href="#">ECLAC</a>
+                        <a class="dropdown-item nav-link bg-dark" href="#">WTO</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
             </div>
-         </div>
-         <br>
-         <template v-for="entry in survey">
+          </div>
+        </section>
+        <main role="main" class="container">
+          <div id="vue-orgs">
+            <div class="row">
+              <div clas="col-12">
+                <h2>1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.</h2>
+                <input type="text" v-model="search" class="form-control" placeholder="Search this answer" title="Search this answer">
+              </div>
+            </div>
+            <br>
+            <template v-for="entry in survey">
            <div v-bind:id='entry["Respondent ID"]' v-show='entry.show'>
              <div class="row">
                <div clas="col-1">
@@ -36,14 +188,17 @@
               </div>
           </div>
         </template>
-   </main>
-   </div>
-   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-   <script src="js/jsonQ.js"></script>
-   <script src="js/underscore.js"></script>
-   <script src="js/app.js"></script>
+        </main>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/jsonQ.js"></script>
+        <script src="js/underscore.js"></script>
+        <script src="js/app.js"></script>
+        <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/affix.js"></script>
+        <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/workspace2.js"></script>
+        <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/sdkp2.js"></script>
 </body>
 
 </html>

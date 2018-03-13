@@ -17,21 +17,22 @@
 
 p {
   color: "#222";
+  font-size: small;
 }
 
 .alogo {
-  max-width: 30px;
-  margin: 4px 1em 0 0;
+  max-width: 23px;
+  margin: -2px 1em 0 0;
 }
 
 section.module.parallax-1 {
-  background-image: url(../img/world3.jpg);
-  height: 600px;
+  background-image: url(../img/world2.jpg);
+  height: 515px;
 }
 
 section.module.parallax h1 {
   font-size: 4em;
-  padding-top: 1em;
+  padding-top: 0.5em;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
 }
@@ -41,6 +42,17 @@ section.module.parallax h2 {
   text-transform: none;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
+}
+
+section.module.parallax h3 {
+  font-size: 1em;
+  font-family: "Rubik", sans-serif;
+  color: white;
+  font-weight: 400;
+}
+
+.h4, h4 {
+  font-size: 1.2em;
 }
 
 #sdgwheel {

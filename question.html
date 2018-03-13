@@ -199,16 +199,55 @@
       </div>
     </div>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="js/jsonQ.js"></script>
-  <script src="js/underscore.js"></script>
-  <script src="js/app.js"></script>
-  <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/affix.js"></script>
-  <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/workspace2.js"></script>
-  <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/sdkp2.js"></script>
+  <div align="center" style="background:#4d4d4d;">
+    <div align="middle">
+      <div align="left" class="bottom">
+        <div class="floatLeft_Half">
+          <div class="topHeadlineGrey">Division for Sustainable Development, UN-DESA</div>
+          <ul class="highlights">
+            <li><a href="/contact">Contact us</a></li>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/offices">Offices away from UNHQ</a></li>
+            <li><a href="http://www.un.org/en/aboutun/copyright/index.html" target="_blank">Copyright</a></li>
+          </ul>
+        </div>
+        <div class="floatLeft_Half">
+          <div class="topHeadlineGrey">Resources</div>
+          <ul class="highlights">
+            <li><a href="http://www.un.org/sustainabledevelopment/" target="_blank">2015 - Time for Global Action for People and Planet</a></li>
+            <li><a href="http://www.un.org/" target="_blank">United Nations</a></li>
+            <li><a href="https://www.un.org/development/desa/en/" target="_blank">United Nations Department of Economic and Social Affairs</a></li>
+          </ul>
+        </div>
+        <div id="clear"></div>
+      </div>
+    </div>
+  </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/jsonQ.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/app.js"></script>
+<script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/affix.js"></script>
+<script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/workspace2.js"></script>
+<script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/sdkp2.js"></script>
+<script>
+  // Bind to the resize event of the window object
+  $(window).on("resize", function() {
+    $('#menu_container').affix({
+      offset: {
+        top: $(".parallax-1").height() + 25
+      }
+    });
+    //console.log($(".parallax-1").height() + 25)
+    // Invoke the resize event immediately
+  }).resize();
+  //The last .resize() call will run this code upon load. as per
+  //https://stackoverflow.com/questions/1974788/combine-onload-and-onresize-jquery
+</script>
+
 
 </html>

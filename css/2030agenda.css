@@ -67,3 +67,11 @@ section.module.parallax h3 {
 .bg-dark {
   background-color: black !important;
 }
+
+.menuBottomArea {
+    top: 120px;
+  }
+
+  main.container {
+    margin-top: 1em;
+}

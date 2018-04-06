@@ -79,7 +79,10 @@ section.module.parallax h3 {
 .picSmall {
     border: none;
   }
-  
+
+  .orgs strong {
+    font-size: medium;
+}
 
   main.container {
     margin-top: 1em;

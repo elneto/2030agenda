@@ -69,7 +69,11 @@ section.module.parallax h3 {
 }
 
 .menuBottomArea {
-    top: 1em;
+    top: 5.5em;
+}
+
+.menuBottomArea_small {
+    top: 3.5em;
 }
 
   main.container {

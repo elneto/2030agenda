@@ -76,6 +76,11 @@ section.module.parallax h3 {
     top: 3.5em;
 }
 
+.picSmall {
+    border: none;
+  }
+  
+
   main.container {
     margin-top: 1em;
 }

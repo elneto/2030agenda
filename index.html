@@ -40,7 +40,6 @@
       <div class="container_empty">
          <div class="row">
             <div class="col-md-12">
-
                <div align="left" class="topMiddle">
                   <div style="padding-top:10px;float:left;">
                      <span class="mobilehide"><img src="https://sustainabledevelopment.un.org/content/images/image18_4895.jpg" class="house"><a href="http://www.un.org/en/index.html" target="_blank">Welcome to the United Nations</a></span>
@@ -91,7 +90,7 @@
    <main role="main" class="container">
       <div class="row">
          <div class="col-md-4">
-            <div style="font-size: 22px;font-family:oswald;color:#999;font-weight:300;">
+            <div class="info-paragraph">
                The UN System for SDGs online database is the United Nations' repository of actions, good practices and plans on the implementation of the Sustainable Development Goals.
                <br>[<a href="#">Read more</a>]
             </div>
@@ -168,8 +167,8 @@
          <div class="col-md-6">
             <div class="list-group orgs" id="questions-accordion">
                <a href="#" class="list-group-item list-group-item-action"><strong>1) Decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs</strong></a>
-               <a href="#" id="q2" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2"><strong>2) Follow-up to the 2030 Agenda and the SDGs +</strong></a>
-               <div id="collapse2" class="collapse" aria-labelledby="q2" data-parent="#questions-accordion">
+               <a href="#" id="q2" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2"><strong>2) Follow-up to the 2030 Agenda and the SDGs</strong><i class="fa fa-chevron-circle-down fasome"></i></a>
+               <div id="collapse2" class="collapse" aria-labelledby="q2" data-parent="#q2">
                   <a href="#" class="list-group-item list-group-item-action">SDG-specific strategies, plans or work programmes</a>
                </div>
                <a href="#" id="q3" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3"><strong>3) Normative, analytical, technical assistance or capacity building to countries</strong></a>
@@ -183,7 +182,7 @@
             </div>
          </div>
          <div class="col-md-6">
-            <div style="font-size: 22px;font-family:oswald;color:#999;font-weight:300;">
+            <div class="info-paragraph">
                On December 2017, the Department of Economic and Social Affairs (DESA) invited the member entities of the Executive Committee on Economic and Social Affairs, as well as UN Conventions secretariats and research institutions (ECESA Plus), to undertake a
                survey on the implementation of the 2030 Agenda and the sustainable development goals (SDGs). The information thus provided will serve as input to the Secretary-General’s report on sustainable development, to be submitted to the General
                Assembly, through the Economic and Social Council, including for the consideration of the high-level political forum on sustainable development, as requested by the General Assembly in resolution 72/216. Additionally, the submissions can
@@ -267,9 +266,10 @@
    ga('create', 'UA-93834762-1', 'auto');
    ga('send', 'pageview');
 
-   $(document).ready(function() {
-      $(".accordion-toggle").mouseover(function() {
-         $(".accordion-toggle").trigger("click");
-      });
-   });
+   // $(document).ready(function() {
+   //    $(".accordion-toggle").mouseover(function() {
+   //       $(".accordion-toggle").trigger("click");
+   //    });
+   // });
 </script>
+<script src="https://use.fontawesome.com/3d9b9117c2.js"></script>

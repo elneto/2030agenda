@@ -88,6 +88,18 @@ section.module.parallax h3 {
     margin-top: 1em;
 }
 
+.fasome{
+  float: right;
+    margin-top: 4px;
+}
+
+.info-paragraph{
+  font-size: 22px;
+  font-family:oswald;
+  color:#999;
+  font-weight:300;
+}
+
 a.list-group-item,
 a.list-group-item:hover {
     font-size: small;

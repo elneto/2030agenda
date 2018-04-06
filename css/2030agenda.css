@@ -5,6 +5,17 @@
   padding: 1em 3em;
 }
 
+body{
+  background-color: #f5f5f5;
+}
+
+.topBarArea {
+    height: 150px;
+}
+
+.topBarArea_small {
+    height: 120px;
+}
 .container_empty {
   max-width: 980px;
   margin: 0 auto;
@@ -13,6 +24,20 @@
 
 .highlight {
   background-color: yellow;
+}
+
+h1{
+  margin-top: 0.3em;
+}
+
+h1, h2{
+  color: #222222;
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+}
+h2{
+  font-size: 1.5em;
 }
 
 p {

@@ -75,3 +75,9 @@ section.module.parallax h3 {
   main.container {
     margin-top: 1em;
 }
+
+a.list-group-item,
+a.list-group-item:hover {
+    font-size: small;
+    color: #555;
+}

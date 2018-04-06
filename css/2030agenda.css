@@ -69,8 +69,8 @@ section.module.parallax h3 {
 }
 
 .menuBottomArea {
-    top: 120px;
-  }
+    top: 1em;
+}
 
   main.container {
     margin-top: 1em;

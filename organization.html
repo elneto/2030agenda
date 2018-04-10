@@ -93,7 +93,7 @@
         <div class="container">
            <div class="row">
               <div class="col-sm-2">
-                 <img class="img-fluid" src="https://sustainabledevelopment.un.org/content/images/flagbig6_62.jpg" alt="" width="180">
+                 <img class="img-fluid" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="" width="180">
               </div>
               <div class="col-sm-10">
                  <h1>{{entry.Short}}</h1>
@@ -106,7 +106,7 @@
           <template v-for="(answer, question) in entry">
            <div class="row">
               <div class="col-sm-12">
-                 <div v-if="question != 'show' && question != 'Organization' && question != 'Short'">
+                 <div v-if="question != 'show' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
                     <h3>{{question}}</h3>
                     <p>{{answer}}</p>
                  </div>

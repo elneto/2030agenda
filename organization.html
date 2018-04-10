@@ -106,7 +106,7 @@
           <template v-for="(answer, question) in entry">
            <div class="row">
               <div class="col-sm-12">
-                 <div id="q1">
+                 <div v-if="question != 'show' && question != 'Organization' && question != 'Short'">
                     <h3>{{question}}</h3>
                     <p>{{answer}}</p>
                  </div>

@@ -77,6 +77,21 @@ var vm = new Vue({
               entry.show=1;
           });
         },
+        getPar: function(q,s){
+          s = s ? s : window.location.search;
+          var re = new RegExp('&' + q + '(?:=([^&]*))?(?=&|$)', 'i');
+          return (s = s.replace(/^\?/, '&').match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
+        },
+        getOrg: function(){
+          var org = this.getPar('org');
+
+          if (typeof org !== 'undefined' && org !== null) {
+             org = org.replace(/\+/g, " ");
+             console.log("org is " + org);
+             return org;
+          }
+          return "";
+        },
         getJson: function(){
           var _this = this;
           $.getJSON('survey_results_min.json',function(res){

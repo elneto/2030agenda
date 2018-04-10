@@ -89,7 +89,7 @@
    </div>
    <br>
    <main role="main" id="vue-orgs">
-      <template v-for="entry in survey" v-if="entry.Short == 'UNAIDS'">
+      <template v-for="entry in survey" v-if="entry.Short == getOrg()">
         <div class="container">
            <div class="row">
               <div class="col-sm-2">

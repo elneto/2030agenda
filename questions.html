@@ -97,13 +97,14 @@
    <main role="main" id="vue-orgs" class="container">
       <div class="row">
          <div class="col-sm-12">
-            <h2>1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary
-            below, including the overarching vision of your organization.</h2>
+            <template v-for="(question, key) in questions" v-if="key == getQ()">
+            <h2>{{question}}</h2>
+          </template>
          </div>
       </div>
       <br>
       <template v-for="entry in survey">
-      <div v-bind:id='entry["Respondent ID"]' v-show='entry.show'>
+      <div v-bind:id='entry["Short"]' v-show='entry.show'>
         <div class="row">
           <div clas="col-1">
             <img :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" class="img-fluid alogo" alt="logo">
@@ -114,7 +115,7 @@
          </div>
          <div class="row">
             <div clas="col-12">
-             <p v-html='entry["1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization."]'></p>
+             <p v-html="entry[getQ()]"></p>
            </div>
          </div>
      </div>

@@ -3,6 +3,7 @@ var vm = new Vue({
     data:{
         search:'',
         survey:null,
+        questions:null,
         surveyQJson:null,
       },
       watch: {
@@ -13,17 +14,18 @@ var vm = new Vue({
     },
     created: function() {
           this.getJson();
+          this.getQuestionsJson();
         },
     methods: {
         findText(){
           //console.log("find: "+this.search);
           this.showAll();
-          this.unhighlightAll("1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.");
+          this.unhighlightAll("q1");
           if (this.search==='') return;
           livesearch = this.search;
 
           //finds all answers that cointain that question
-          answers = this.surveyQJson.find("1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.",
+          answers = this.surveyQJson.find("q1",
                     function(){
                       var re=new RegExp(livesearch,"gi");
                       //console.log(this.match(re));
@@ -92,6 +94,16 @@ var vm = new Vue({
           }
           return "";
         },
+        getQ: function(){
+          var org = this.getPar('q');
+
+          if (typeof org !== 'undefined' && org !== null) {
+             org = org.replace(/\+/g, " ");
+             console.log("q is " + org);
+             return org.toLowerCase();
+          }
+          return "";
+        },
         getJson: function(){
           var _this = this;
           $.getJSON('survey_results_min.json',function(res){
@@ -103,6 +115,18 @@ var vm = new Vue({
           .fail(function( jqxhr, textStatus, error ) {
               var err = textStatus + ", " + error;
               console.log( "Request Failed: " + err );
+          });
+      },
+        getQuestionsJson: function(){
+          var _this = this;
+          $.getJSON('questions.json',function(res){
+            _this.questions = res;
+          }).done(function() {
+            console.log( "questions.json loaded" );
+          })
+          .fail(function( jqxhr, textStatus, error ) {
+              var err = textStatus + ", " + error;
+              console.log( "Questions.json Request Failed: " + err );
           });
       }
     }

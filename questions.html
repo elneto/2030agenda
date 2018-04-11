@@ -94,33 +94,31 @@
       </div>
    </div>
    <br>
-   <main role="main" id="vue-orgs">
-      <template v-for="entry in survey" v-if="entry.Short == getOrg()">
-        <div class="container">
-           <div class="row">
-              <div class="col-sm-2">
-                 <img class="img-fluid" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="" width="180">
-              </div>
-              <div class="col-sm-10">
-                 <h1>{{entry.Short}}</h1>
-                 <h2>{{entry.Organization}}</h2>
-              </div>
-           </div>
-        </div>
-        <br>
-        <div class="container">
-          <template v-for="(answer, question) in entry">
-           <div class="row">
-              <div class="col-sm-12">
-                 <div v-if="question != 'show' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
-                    <h3>{{question}}</h3>
-                    <p>{{answer}}</p>
-                 </div>
-              </div>
-           </div>
-         </template>
+   <main role="main" id="vue-orgs" class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <h2>1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary
+            below, including the overarching vision of your organization.</h2>
+         </div>
       </div>
-      </template>
+      <br>
+      <template v-for="entry in survey">
+      <div v-bind:id='entry["Respondent ID"]' v-show='entry.show'>
+        <div class="row">
+          <div clas="col-1">
+            <img :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" class="img-fluid alogo" alt="logo">
+          </div>
+           <div clas="col-11">
+             <h4>{{entry.Organization}}</h4>
+           </div>
+         </div>
+         <div class="row">
+            <div clas="col-12">
+             <p v-html='entry["1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization."]'></p>
+           </div>
+         </div>
+     </div>
+   </template>
    </main>
    <div align="center" style="background:#4d4d4d;">
       <div align="middle">

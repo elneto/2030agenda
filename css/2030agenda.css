@@ -41,10 +41,11 @@ h2{
 }
 h3{
   font-size: 1.2em;
+  color:#444;
 }
 
 p {
-  color: "#222";
+  color: "#333";
   font-size: small;
 }
 

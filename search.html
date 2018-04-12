@@ -140,6 +140,24 @@
                </div>
                <!-- /.col-md-12 -->
             </div>
+            <template v-for="entry in survey">
+              <div v-bind:id='entry.Short' v-show='entry.showO'>
+                <div class="row">
+                  <div clas="col-1">
+                    <img class="img-fluid alogo" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
+                  </div>
+                   <div clas="col-11">
+                     <h3>{{entry.Organization}}</h3>
+                   </div>
+                 </div>
+                 <div class="row">
+                    <div clas="col-12">
+                      <!-- todo: loop through all questions -->
+                     <p v-html='entry.q1'></p>
+                   </div>
+                 </div>
+             </div>
+           </template>
          </main>
          <div align="center" style="background:#4d4d4d;">
             <div align="middle">

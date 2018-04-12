@@ -89,7 +89,6 @@ var vm = new Vue({
 
           if (typeof org !== 'undefined' && org !== null) {
              org = org.replace(/\+/g, " ");
-             console.log("org is " + org);
              return org.toUpperCase();
           }
           return "";
@@ -99,7 +98,6 @@ var vm = new Vue({
 
           if (typeof org !== 'undefined' && org !== null) {
              org = org.replace(/\+/g, " ");
-             console.log("q is " + org);
              return org.toLowerCase();
           }
           return "";

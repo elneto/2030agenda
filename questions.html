@@ -104,7 +104,7 @@
       </div>
       <br>
       <template v-for="entry in survey">
-      <div v-bind:id='entry["Short"]' v-show='entry.show'>
+      <div v-bind:id='entry["Short"]'>
         <div class="row">
           <div clas="col-1">
             <img :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" class="img-fluid alogo" alt="logo">

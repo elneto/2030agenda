@@ -141,7 +141,13 @@ a.list-group-item:hover {
 .btn:hover {
     font-size: inherit;
 }
-
+input
+{
+  width: inherit;
+}
 a#menu-toggle2{
   color:inherit;
+}
+.somepadding{
+  padding: 0 1em;
 }

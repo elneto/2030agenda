@@ -106,6 +106,7 @@ section.module.parallax h3 {
 
 .picSmall {
     border: none;
+    width: 40px;
   }
 
   .orgs strong {

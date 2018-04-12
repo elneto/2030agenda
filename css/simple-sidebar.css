@@ -17,13 +17,13 @@ body {
 }
 
 #wrapper.toggled {
-  padding-left: 250px;
+  padding-right: 250px;
 }
 
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
-  left: 250px;
+  right: 0;
   width: 0;
   height: 100%;
   margin-left: -250px;
@@ -103,7 +103,7 @@ body {
     padding-left: 0;
   }
   #wrapper.toggled {
-    padding-left: 250px;
+    padding-right: 250px;
   }
   #sidebar-wrapper {
     width: 0;

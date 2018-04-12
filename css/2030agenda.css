@@ -141,3 +141,7 @@ a.list-group-item:hover {
 .btn:hover {
     font-size: inherit;
 }
+
+a#menu-toggle2{
+  color:inherit;
+}

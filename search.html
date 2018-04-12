@@ -42,6 +42,7 @@
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
          <ul class="sidebar-nav">
+            <h2>Filter results by... <a href="#" id="menu-toggle2"><i class="fa fa-window-close float-right"></i></a></h2>
             <li class="sidebar-brand">
                <a href="#">
                         Start Bootstrap
@@ -235,6 +236,10 @@
 <!-- Menu Toggle Script -->
 <script>
    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+   });
+   $("#menu-toggle2").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
    });

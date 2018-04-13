@@ -9,7 +9,8 @@ var vm = new Vue({
       watch: {
       // whenever search changes, this function will run
       search: function () {
-        this.findText()
+        // this.findText()
+        this.findOccurrences()
       }
     },
     created: function() {
@@ -17,6 +18,24 @@ var vm = new Vue({
           this.getQuestionsJson();
         },
     methods: {
+        findOccurrences(){
+          if (this.search==='') return;
+          livesearch = this.search;
+          this.survey.forEach(function(entry){
+            var totalOrg = 0;
+            for(var answer in entry){
+              //entry has the question or key and entry[answer] the actual answer
+              var arr = String(entry[answer]).match(new RegExp(livesearch,"gi"));
+              if (arr){
+                //console.log(answer)
+                //console.log(arr.length);
+                totalOrg += arr.length;
+              }
+            }
+            console.log(entry.Short + " " + totalOrg);
+
+          });
+        },
         findText(){
           //console.log("find: "+this.search);
           this.showAll();

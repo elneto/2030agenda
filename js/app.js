@@ -37,16 +37,14 @@ var vm = new Vue({
           _this = this;
           answers.each(function (index, path, value) {
               //console.log(value.Organization);
-              //console.log(value["Respondent ID"]);
-              _this.showId(value["Respondent ID"]);
-              _this.highlightId(value["Respondent ID"],
-                "1. Since the adoption of the 2030 Agenda and the SDGs, has the governing body of your organization taken (or will it take) any decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs? If any, please provide a brief summary below, including the overarching vision of your organization.",
-                livesearch);
+              //console.log(value[Short]);
+              _this.showId(value[Short]);
+              _this.highlightId(value[Short],q1,livesearch);
           });
         },
         showId: function(id){
           _.each(this.survey, function(entry){
-            if (id==entry["Respondent ID"]){
+            if (id==entry[Short]){
               entry.show=1;
             }
           });
@@ -61,7 +59,7 @@ var vm = new Vue({
         },
         highlightId: function(id, question, word){
           _.each(this.survey, function(entry){
-            if (id==entry["Respondent ID"]){
+            if (id==entry[Short]){
               //todo: somehow reuse the regexp
               var re=new RegExp("("+word+")","gi");
               //todo: replace with match so the case is not low

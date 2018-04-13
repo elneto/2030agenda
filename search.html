@@ -129,7 +129,7 @@
                <div class="col-md-12">
                   <form class="navbar-form" role="search">
                      <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                        <input type="text" v-model="search" class="form-control" placeholder="Search for..." aria-label="Search for...">
                         <div class="input-group-append">
                            <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
                            <button class="btn btn-outline-secondary" type="button" id="menu-toggle">Filter results <i class="fa fa-filter"></i></button>
@@ -145,7 +145,7 @@
                   <template v-for="entry in survey">
                     <div v-bind:id='entry.Short' v-show='entry.showO'>
 
-                      <button type="button" class="btn btn-primary">
+                      <button :id="'btn'+ entry.id" type="button" class="btn btn-primary">
                         {{entry.Short}} <span class="badge badge-light">9</span>
                         <span class="sr-only">occurences found</span>
                       </button>

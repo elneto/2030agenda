@@ -140,13 +140,21 @@
                </div>
                <!-- /.col-md-12 -->
             </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                  <p id="grand_total">Total: <span id="textTotal">0</span></p>
+
+               </div>
+            </div>
+
             <div class="row">
                <div class="col-md-12">
                   <template v-for="entry in survey">
                     <div v-bind:id='entry.Short' v-show='entry.showO'>
 
                       <button :id="'btn'+ entry.id" type="button" class="btn btn-primary">
-                        {{entry.Short}} <span class="badge badge-light">9</span>
+                        {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">0</span>
                         <span class="sr-only">occurences found</span>
                       </button>
 

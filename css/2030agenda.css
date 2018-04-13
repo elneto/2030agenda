@@ -154,4 +154,9 @@ a#menu-toggle2{
 }
 .btn-primary{
   float: left;
+  margin: 0 5px 0 0;
+}
+p#grand_total{
+  color: #666;
+  font-size: medium;
 }

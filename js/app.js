@@ -19,8 +19,17 @@ var vm = new Vue({
         },
     methods: {
         findOccurrences(){
-          if (this.search==='') return;
+          if (this.search===''){
+            //todo change 8 to totalObjects in array
+            for (var i=1; i<=8; i++){
+                $('#badge'+i).text(0);
+            }
+            $('#textTotal').text(0);
+              return;
+          }
+
           livesearch = this.search;
+          var grandTotal = 0;
           this.survey.forEach(function(entry){
             var totalOrg = 0;
             for(var answer in entry){
@@ -32,8 +41,11 @@ var vm = new Vue({
                 totalOrg += arr.length;
               }
             }
-            console.log(entry.Short + " " + totalOrg);
-
+            //console.log(entry.Short + " " + totalOrg);
+            grandTotal += totalOrg;
+            $('#badge'+entry.id).text(totalOrg);
+            //console.log('total '+grandTotal)
+            $('#textTotal').text(grandTotal);
           });
         },
         findText(){

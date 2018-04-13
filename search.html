@@ -153,7 +153,7 @@
                   <template v-for="entry in survey">
                     <div v-bind:id='entry.Short' v-show='entry.showO'>
 
-                      <button :id="'btn'+ entry.id" type="button" class="btn btn-primary">
+                      <button :id="'btn'+ entry.id" type="button" class="btn btn-secondary">
                         {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">0</span>
                         <span class="sr-only">occurences found</span>
                       </button>

@@ -23,6 +23,7 @@ var vm = new Vue({
             //todo change 8 to totalObjects in array
             for (var i=1; i<=8; i++){
                 $('#badge'+i).text(0);
+                $('#btn'+i).removeClass('btn-success').addClass('btn-secondary');
             }
             $('#textTotal').text(0);
               return;
@@ -44,6 +45,12 @@ var vm = new Vue({
             //console.log(entry.Short + " " + totalOrg);
             grandTotal += totalOrg;
             $('#badge'+entry.id).text(totalOrg);
+            if (totalOrg){
+              $('#btn'+entry.id).removeClass('btn-secondary').addClass('btn-success');
+            }
+            else{
+              $('#btn'+entry.id).removeClass('btn-success').addClass('btn-secondary');
+            }
             //console.log('total '+grandTotal)
             $('#textTotal').text(grandTotal);
           });

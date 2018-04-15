@@ -132,7 +132,7 @@
                         <input type="text" id="search_input" v-model="search" class="form-control" placeholder="Search for..." aria-label="Search for..." autofocus>
                         <div class="input-group-append">
                            <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
-                           <button class="btn btn-outline-secondary" type="button" id="menu-toggle">Filter results <i class="fa fa-filter"></i></button>
+                           <!-- <button class="btn btn-outline-secondary" type="button" id="menu-toggle">Filter results <i class="fa fa-filter"></i></button> -->
                         </div>
                      </div>
                      <!-- /input-group -->
@@ -152,8 +152,8 @@
                <div class="col-md-12">
                   <template v-for="entry in orderedEntries">
                     <div v-bind:id='entry.Short' v-show='entry.showO'>
-                      <button :id="'btn'+ entry.id" type="button" class="btn btn-secondary">
-                        {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">{{entry.sorto}}</span>
+                      <button :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'">
+                        {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id" >{{entry.sorto}}</span>
                         <span class="sr-only">occurences found</span>
                       </button>
                     </div>

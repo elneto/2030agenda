@@ -150,10 +150,10 @@
 
             <div class="row">
                <div class="col-md-12">
-                  <template v-for="entry in survey">
+                  <template v-for="entry in orderedEntries">
                     <div v-bind:id='entry.Short' v-show='entry.showO'>
                       <button :id="'btn'+ entry.id" type="button" class="btn btn-secondary">
-                        {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">0</span>
+                        {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">{{entry.sorto}}</span>
                         <span class="sr-only">occurences found</span>
                       </button>
                     </div>
@@ -161,8 +161,8 @@
                </div>
             </div>
             <p>&nbsp;</p>
-            <template v-for="entry in survey">
-              <template v-for="answer, question in entry" v-if="question != 'id' && question != 'showQ' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
+            <template v-for="entry in orderedEntries">
+              <template v-for="answer, question in entry" v-if="question != 'id' && question != 'sorto' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
                 <div :id="'answer'+entry.id+question" v-show=0 class="answer_row">
                     <div class="row">
                       <div class="col-2 text-center">
@@ -210,7 +210,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="js/underscore.js"></script>
+<script src="js/lodash.min.js"></script>
 <script src="js/app.js"></script>
 <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/affix.js"></script>
 <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/workspace2.js"></script>

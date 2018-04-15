@@ -62,6 +62,7 @@ var vm = new Vue({
                 var left = left_arr[0].substring(0,left_arr[0].length-livesearch.length);
                 var right = right_arr[0].substring(livesearch.length);
                 $('#answertext'+entry.id+answer).html( "..."+left +" <strong>"+livesearch+ "</strong>" +right);
+                //console.log("I found "+ "..."+left +livesearch +right + " IN ENTRY " + entry.id +answer);
               }
               totalOrg += arr.length;
               entry.sorto = totalOrg;

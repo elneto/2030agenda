@@ -50,8 +50,8 @@ p {
 }
 
 .alogo {
-  max-width: 23px;
-  margin: -2px 1em 0 0;
+  max-width: 100px;
+  /* margin: 4px 5px 0 0; */
 }
 
 section.module.parallax-1 {
@@ -159,4 +159,21 @@ a#menu-toggle2{
 p#grand_total{
   color: #666;
   font-size: medium;
+}
+.answer_row{
+  margin-bottom: 2em;
+}
+.answer_row:hover {
+    background-color: #eee;
+}
+
+.answer_row h3{
+  color:#666;
+}
+h3.org_name{
+  color:#00adef;
+  text-align: center
+}
+.answer_text{
+  color:#777;
 }

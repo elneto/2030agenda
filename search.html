@@ -163,7 +163,7 @@
             <p>&nbsp;</p>
             <template v-for="entry in orderedEntries">
               <template v-for="answer, question in entry" v-if="question != 'id' && question != 'sorto' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
-                <div :id="'answer'+entry.id+question" v-show=0 class="answer_row">
+                <div :id="'answer'+entry.id+question" v-show=0 class="answer_row"  data-toggle="modal" data-target="#ModalAnswer" @click="writeModal(entry.id,question)">
                     <div class="row">
                       <div class="col-2 text-center">
                         <img class="img-fluid alogo" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
@@ -172,12 +172,11 @@
                        <div class="col-10">
                          <h3 >{{questionName(question).length>100?questionName(question).substring(0,100)+"...":questionName(question)}}</h3>
                          <p>
-                         <div class="answer_text" :id="'answertext'+entry.id+question">
+                         <div class="answer_text" :id="'answertext'+entry.id+question"></div>
                          </p>
                       </div>
                     </div>
-
-                  </div>
+                </div>
 
               </template>
             </template>
@@ -203,6 +202,27 @@
       <!--  /. content wrapper -->
    </div>
    <!--  /. id wrapper -->
+   <!-- Modal -->
+   <div class="modal fade" id="ModalAnswer" tabindex="-1" role="dialog" aria-labelledby="ModalAnswerTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <img class="img-fluid alogo" alt="" id="imageModal">
+               <h2 class="modal-title" id="ModalAnswerTitle"></h2>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+               ...
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+         </div>
+      </div>
+   </div>
 </body>
 
 </html>

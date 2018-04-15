@@ -11,10 +11,12 @@ body{
 
 .topBarArea {
     height: 150px;
+    z-index: 999;
 }
 
 .topBarArea_small {
     height: 120px;
+    z-index: 999;
 }
 .container_empty {
   max-width: 980px;
@@ -41,6 +43,10 @@ h2{
 }
 h3{
   font-size: 1.2em;
+  color:#444;
+}
+h5{
+  font-size: 0.9em;
   color:#444;
 }
 
@@ -162,6 +168,7 @@ p#grand_total{
 }
 .answer_row{
   margin-bottom: 2em;
+  cursor: pointer;
 }
 .answer_row:hover {
     background-color: #f8f9fa;
@@ -176,4 +183,7 @@ h3.org_name{
 }
 .answer_text{
   color:#777;
+}
+.modal-lg {
+    max-width: 931px;
 }

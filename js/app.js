@@ -22,6 +22,13 @@ var vm = new Vue({
           this.getQuestionsJson();
         },
     methods: {
+      writeModal(id,q){
+        //alert(id + q);
+        entry = _.find(this.survey, {'id':id});
+        $('#ModalAnswerTitle').text(entry.Organization);
+        $('#modalBody').html("<h5>"+this.questionName(q)+"</h5><p>"+entry[q]+"</p>");
+        $("#imageModal").attr("src","https://sustainabledevelopment.un.org/content/images/flagbig6_"+ entry.respondent_nr + ".jpg");
+      },
       questionName(q){
         return this.questions[q];
       },

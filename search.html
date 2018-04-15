@@ -192,8 +192,8 @@
                      </div>
                   </div>
                   <div class="row">
-                    <div class="col-12" :id="'answertext'+entry.id+question">
-                      {{answer}}
+                    <div class="col-12" :id="'answertext'+entry.id+question" v-html="answer">
+                      
                       <br>
                     </div>
                   </div>

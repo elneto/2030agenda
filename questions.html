@@ -97,9 +97,7 @@
    <main role="main" id="vue-orgs" class="container">
       <div class="row">
          <div class="col-sm-12">
-            <template v-for="(question, key) in questions" v-if="key == getQ()">
-            <h2>{{question}}</h2>
-          </template>
+            <h2 v-html="questionName(getQ())"></h2>
          </div>
       </div>
       <br>

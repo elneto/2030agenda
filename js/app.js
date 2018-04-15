@@ -44,8 +44,9 @@ var vm = new Vue({
               //console.log(answer)
               //arr.length has the number of occurrences of the term searched in this answer
               $('#answer'+entry.id+answer).show();
+              var adjacent_arr = String(entry[answer]).match(new RegExp(""+livesearch+"[^\.]+","i"));
               //entry[answer] = "";
-              // $('#answertext'+entry.id+answer).html("something <strong>asfda</strong> something");
+              $('#answertext'+entry.id+answer).html(adjacent_arr[0]);
               totalOrg += arr.length;
             }
           }

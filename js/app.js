@@ -6,7 +6,7 @@ var vm = new Vue({
         questions:null,
         surveyQJson:null,
       },
-      watch: {
+    watch: {
       // whenever search changes, this function will run
       search: function () {
         // this.findText()
@@ -18,46 +18,49 @@ var vm = new Vue({
           this.getQuestionsJson();
         },
     methods: {
-        findOccurrences(){
-          this.hideQuestions();
-          if (this.search===''){
-            //todo change 8 to totalObjects in array
-            for (var i=1; i<=8; i++){
-                $('#badge'+i).text(0);
-                $('#btn'+i).removeClass('btn-success').addClass('btn-secondary');
-            }
-            $('#textTotal').text(0);
-              return;
+      questionName(q){
+        return this.questions[q];
+      },
+      findOccurrences(){
+        this.hideQuestions();
+        if (this.search===''){
+          //todo change 8 to totalObjects in array
+          for (var i=1; i<=8; i++){
+              $('#badge'+i).text(0);
+              $('#btn'+i).removeClass('btn-success').addClass('btn-secondary');
           }
+          $('#textTotal').text(0);
+            return;
+        }
 
-          livesearch = this.search;
-          var grandTotal = 0;
-          this.survey.forEach(function(entry){ //for each entry
-            var totalOrg = 0;
-            for(var answer in entry){
-              //entry has the question or key and entry[answer] the actual answer
-              var arr = String(entry[answer]).match(new RegExp(livesearch,"gi"));
-              if (arr){
-                //console.log(answer)
-                //arr.length has the number of occurrences of the term searched in this answer
-                $('#answer'+entry.id+answer).show();
-                totalOrg += arr.length;
-              }
+        livesearch = this.search;
+        var grandTotal = 0;
+        this.survey.forEach(function(entry){ //for each entry
+          var totalOrg = 0;
+          for(var answer in entry){
+            //entry has the question or key and entry[answer] the actual answer
+            var arr = String(entry[answer]).match(new RegExp(livesearch,"gi"));
+            if (arr){
+              //console.log(answer)
+              //arr.length has the number of occurrences of the term searched in this answer
+              $('#answer'+entry.id+answer).show();
+              totalOrg += arr.length;
             }
-            //console.log(entry.Short + " " + totalOrg);
-            grandTotal += totalOrg;
-            $('#badge'+entry.id).text(totalOrg);
-            if (totalOrg){
-              $('#btn'+entry.id).removeClass('btn-secondary').addClass('btn-success');
-            }
-            else{
-              $('#btn'+entry.id).removeClass('btn-success').addClass('btn-secondary');
-            }
-            //console.log('total '+grandTotal)
-            $('#textTotal').text(grandTotal);
-          });
-        },
-        hideQuestions(){
+          }
+          //console.log(entry.Short + " " + totalOrg);
+          grandTotal += totalOrg;
+          $('#badge'+entry.id).text(totalOrg);
+          if (totalOrg){
+            $('#btn'+entry.id).removeClass('btn-secondary').addClass('btn-success');
+          }
+          else{
+            $('#btn'+entry.id).removeClass('btn-success').addClass('btn-secondary');
+          }
+          //console.log('total '+grandTotal)
+          $('#textTotal').text(grandTotal);
+        });
+      },
+      hideQuestions(){
             this.survey.forEach(function(entry){ //for each entry
               for(var answer in entry){
                 $('#answer'+entry.id+answer).hide();

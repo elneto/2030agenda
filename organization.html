@@ -113,7 +113,7 @@
            <div class="row">
               <div class="col-sm-12">
                  <div v-if="question != 'id' && question != 'showQ' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
-                    <h3>{{question}}</h3>
+                    <h3>{{ questionName(question) }}</h3>
                     <p>{{answer}}</p>
                  </div>
               </div>

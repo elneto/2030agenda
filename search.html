@@ -151,31 +151,57 @@
             <div class="row">
                <div class="col-md-12">
                   <template v-for="entry in survey">
-                    <div v-bind:id='entry.Short' v-show='entry.showO'>
+                      <div v-bind:id='entry.Short' v-show='entry.showO'>
 
-                      <button :id="'btn'+ entry.id" type="button" class="btn btn-secondary">
-                        {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">0</span>
-                        <span class="sr-only">occurences found</span>
-                      </button>
+                        <button :id="'btn'+ entry.id" type="button" class="btn btn-secondary">
+                          {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">0</span>
+                          <span class="sr-only">occurences found</span>
+                        </button>
 
-                      <!-- <div class="row">
-                        <div clas="col-1">
-                          <img class="img-fluid alogo" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
-                        </div>
-                         <div clas="col-11">
-                           <h3>{{entry.Organization}}</h3>
-                         </div>
-                       </div> -->
-                       <!-- todo: loop thru all questions
-                        <div class="row">
-                          <div clas="col-12">
-                           <p v-html='entry.q1'></p>
-                         </div>
-                       </div> -->
-                   </div>
-                 </template>
+                        <!-- <div class="row">
+                          <div clas="col-1">
+                            <img class="img-fluid alogo" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
+                          </div>
+                           <div clas="col-11">
+                             <h3>{{entry.Organization}}</h3>
+                           </div>
+                         </div> -->
+                         <!-- todo: loop thru all questions
+                          <div class="row">
+                            <div clas="col-12">
+                             <p v-html='entry.q1'></p>
+                           </div>
+                         </div> -->
+                     </div>
+                    </template>
                </div>
             </div>
+            <p>&nbsp;</p>
+            <template v-for="entry in survey">
+              <template v-for="answer, question in entry" v-if="question != 'id' && question != 'showQ' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
+                <div :id="'answer'+entry.id+question" v-show=0>
+                  <div class="row">
+                    <div class="col-1">
+                      <img class="img-fluid alogo" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
+                    </div>
+                     <div class="col-1">
+                       <h3>{{entry.Short}}</h3>
+                     </div>
+                     <div class="col-10">
+                       <h3>{{question}}</h3>
+                     </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      {{answer}}
+                      <br>
+                    </div>
+                  </div>
+                </div>
+
+              </template>
+            </template>
+
          </main>
          <div align="center" style="background:#4d4d4d;">
             <div align="middle">

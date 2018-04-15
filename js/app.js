@@ -19,6 +19,7 @@ var vm = new Vue({
         },
     methods: {
         findOccurrences(){
+          this.hideQuestions();
           if (this.search===''){
             //todo change 8 to totalObjects in array
             for (var i=1; i<=8; i++){
@@ -31,14 +32,15 @@ var vm = new Vue({
 
           livesearch = this.search;
           var grandTotal = 0;
-          this.survey.forEach(function(entry){
+          this.survey.forEach(function(entry){ //for each entry
             var totalOrg = 0;
             for(var answer in entry){
               //entry has the question or key and entry[answer] the actual answer
               var arr = String(entry[answer]).match(new RegExp(livesearch,"gi"));
               if (arr){
                 //console.log(answer)
-                //console.log(arr.length);
+                //arr.length has the number of occurrences of the term searched in this answer
+                $('#answer'+entry.id+answer).show();
                 totalOrg += arr.length;
               }
             }
@@ -54,6 +56,13 @@ var vm = new Vue({
             //console.log('total '+grandTotal)
             $('#textTotal').text(grandTotal);
           });
+        },
+        hideQuestions(){
+            this.survey.forEach(function(entry){ //for each entry
+              for(var answer in entry){
+                $('#answer'+entry.id+answer).hide();
+              }
+            });
         },
         findText(){
           //console.log("find: "+this.search);

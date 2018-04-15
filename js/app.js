@@ -4,7 +4,6 @@ var vm = new Vue({
         search:'',
         survey:null,
         questions:null,
-        surveyQJson:null,
       },
     watch: {
       // whenever search changes, this function will run
@@ -75,47 +74,7 @@ var vm = new Vue({
               }
             });
         },
-        findText(){
-          //console.log("find: "+this.search);
-          this.showAll();
-          this.unhighlightAll("q1");
-          if (this.search==='') return;
-          livesearch = this.search;
-
-          //finds all answers that cointain that question
-          answers = this.surveyQJson.find("q1",
-                    function(){
-                      var re=new RegExp(livesearch,"gi");
-                      //console.log(this.match(re));
-                      return this.match(re);
-                    }).parent();
-          //console.log(answers);
-          this.hideAll();
-          //the code below shows the answers where the keyword is present
-          _this = this;
-          answers.each(function (index, path, value) {
-              //console.log(value.Organization);
-              //console.log(value[Short]);
-              _this.showId(value[Short]);
-              _this.highlightId(value[Short],q1,livesearch);
-          });
-        },
-        showId: function(id){
-          _.each(this.survey, function(entry){
-            if (id==entry[Short]){
-              entry.show=1;
-            }
-          });
-        },
-        unhighlightAll: function(question){
-          _.each(this.survey, function(entry){
-            var re=new RegExp('\<span class\=\"highlight\"\>',"gi");
-            entry[question] = entry[question].replace(re,'');
-            var re2=new RegExp('\<\/span\>',"gi");
-            entry[question] = entry[question].replace(re2,'');
-          });
-        },
-        highlightId: function(id, question, word){
+      highlightId: function(id, question, word){
           _.each(this.survey, function(entry){
             if (id==entry[Short]){
               //todo: somehow reuse the regexp
@@ -123,16 +82,6 @@ var vm = new Vue({
               //todo: replace with match so the case is not low
               entry[question] = entry[question].replace(re,'<span class="highlight">$1</span>');
             }
-          });
-        },
-        hideAll: function(){
-          _.each(this.survey, function(entry){
-              entry.show=0;
-          });
-        },
-        showAll: function(){
-          _.each(this.survey, function(entry){
-              entry.show=1;
           });
         },
         getPar: function(q,s){
@@ -164,7 +113,6 @@ var vm = new Vue({
             _this.survey = res;
           }).done(function() {
             console.log( "survey results loaded" );
-            _this.surveyQJson = jsonQ(_this.survey);
           })
           .fail(function( jqxhr, textStatus, error ) {
               var err = textStatus + ", " + error;

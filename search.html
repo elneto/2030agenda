@@ -151,29 +151,13 @@
             <div class="row">
                <div class="col-md-12">
                   <template v-for="entry in survey">
-                      <div v-bind:id='entry.Short' v-show='entry.showO'>
-
-                        <button :id="'btn'+ entry.id" type="button" class="btn btn-secondary">
-                          {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">0</span>
-                          <span class="sr-only">occurences found</span>
-                        </button>
-
-                        <!-- <div class="row">
-                          <div clas="col-1">
-                            <img class="img-fluid alogo" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
-                          </div>
-                           <div clas="col-11">
-                             <h3>{{entry.Organization}}</h3>
-                           </div>
-                         </div> -->
-                         <!-- todo: loop thru all questions
-                          <div class="row">
-                            <div clas="col-12">
-                             <p v-html='entry.q1'></p>
-                           </div>
-                         </div> -->
-                     </div>
-                    </template>
+                    <div v-bind:id='entry.Short' v-show='entry.showO'>
+                      <button :id="'btn'+ entry.id" type="button" class="btn btn-secondary">
+                        {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id">0</span>
+                        <span class="sr-only">occurences found</span>
+                      </button>
+                    </div>
+                  </template>
                </div>
             </div>
             <p>&nbsp;</p>
@@ -226,7 +210,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="js/jsonQ.js"></script>
 <script src="js/underscore.js"></script>
 <script src="js/app.js"></script>
 <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/js/affix.js"></script>

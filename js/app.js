@@ -22,6 +22,17 @@ var vm = new Vue({
           this.getQuestionsJson();
         },
     methods: {
+      filterOrg(id){
+        this.findOccurrences();
+        this.$forceUpdate();
+        this.survey.forEach(function(entry){
+            if (entry.id==id)
+              entry.showO=1;
+            else
+              entry.showO=0;
+        });
+        this.$forceUpdate();
+      },
       writeModal(id,q){
         //alert(id + q);
         entry = _.find(this.survey, {'id':id});
@@ -38,7 +49,7 @@ var vm = new Vue({
           //todo change 8 to totalObjects in array
           this.survey.forEach(function(entry){
               entry.sorto=0;
-              //$('#btn'+entry.id).removeClass('btn-success').addClass('btn-secondary');
+              entry.showO=1;
           });
           $('#textTotal').text(0);
             return;
@@ -83,12 +94,13 @@ var vm = new Vue({
         });
       },
       hideQuestions(){
-            this.survey.forEach(function(entry){ //for each entry
-              for(var answer in entry){
-                $('#answer'+entry.id+answer).hide();
-              }
-            });
-        },
+        console.log("hideQuestions");
+        this.survey.forEach(function(entry){ //for each entry
+          for(var answer in entry){
+            $('#answer'+entry.id+answer).hide();
+          }
+        });
+      },
       // highlightId: function(id, question, word){
       //     _.each(this.survey, function(entry){
       //       if (id==entry[Short]){

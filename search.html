@@ -151,8 +151,8 @@
             <div class="row">
                <div class="col-md-12">
                   <template v-for="entry in orderedEntries">
-                    <div v-bind:id='entry.Short' v-show='entry.showO'>
-                      <button :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'">
+                    <div v-bind:id='entry.Short'>
+                      <button @click="filterOrg(entry.id)" :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'" :disabled="entry.sorto<=0">
                         {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id" >{{entry.sorto}}</span>
                         <span class="sr-only">occurences found</span>
                       </button>
@@ -161,7 +161,7 @@
                </div>
             </div>
             <p>&nbsp;</p>
-            <template v-for="entry in orderedEntries">
+            <template v-for="entry in orderedEntries" v-if="entry.showO">
               <template v-for="answer, question in entry" v-if="question != 'id' && question != 'sorto' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
                 <div :id="'answer'+entry.id+question" v-show=0 class="answer_row"  data-toggle="modal" data-target="#ModalAnswer" @click="writeModal(entry.id,question)">
                     <div class="row">

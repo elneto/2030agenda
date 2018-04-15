@@ -164,7 +164,7 @@ p#grand_total{
   margin-bottom: 2em;
 }
 .answer_row:hover {
-    background-color: #eee;
+    background-color: #f8f9fa;
 }
 
 .answer_row h3{

@@ -44,9 +44,14 @@ var vm = new Vue({
               //console.log(answer)
               //arr.length has the number of occurrences of the term searched in this answer
               $('#answer'+entry.id+answer).show();
-              var adjacent_arr = String(entry[answer]).match(new RegExp(""+livesearch+"[^\.]+","i"));
+              var left_arr = String(entry[answer]).match(new RegExp("(\\S+\\s+){0,7}"+livesearch,"im"));
+              var right_arr = String(entry[answer]).match(new RegExp(livesearch+"[^\.]+","i"));
               //entry[answer] = "";
-              $('#answertext'+entry.id+answer).html(adjacent_arr[0]);
+              if (left_arr && right_arr){
+                var left = left_arr[0].substring(0,left_arr[0].length-livesearch.length);
+                var right = right_arr[0].substring(livesearch.length);
+                $('#answertext'+entry.id+answer).html( left +" <strong>"+livesearch+ "</strong>" +right);
+              }
               totalOrg += arr.length;
             }
           }

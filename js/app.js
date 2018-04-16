@@ -15,7 +15,7 @@ var vm = new Vue({
       search: function () {
         // this.findText()
         this.findOccurrences();
-        
+
       }
     },
     created: function() {
@@ -36,6 +36,9 @@ var vm = new Vue({
         // this.findOccurrences();
         //this.$forceUpdate();
         //console.log("finished filterOrg " + id);
+      },
+      clearSearch(){
+        this.search = "";
       },
       writeModal(id,q){
         //alert(id + q);

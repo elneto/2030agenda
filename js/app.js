@@ -14,7 +14,8 @@ var vm = new Vue({
       // whenever search changes, this function will run
       search: function () {
         // this.findText()
-        this.findOccurrences()
+        this.findOccurrences();
+        
       }
     },
     created: function() {
@@ -23,15 +24,18 @@ var vm = new Vue({
         },
     methods: {
       filterOrg(id){
+        //console.log("start filterOrg " + id);
         this.findOccurrences();
-        this.$forceUpdate();
-        this.survey.forEach(function(entry){
+        //this.$forceUpdate();
+        this.orderedEntries.forEach(function(entry){
             if (entry.id==id)
               entry.showO=1;
             else
               entry.showO=0;
         });
-        this.$forceUpdate();
+        // this.findOccurrences();
+        //this.$forceUpdate();
+        //console.log("finished filterOrg " + id);
       },
       writeModal(id,q){
         //alert(id + q);
@@ -57,7 +61,7 @@ var vm = new Vue({
 
         livesearch = this.search;
         var grandTotal = 0;
-        this.survey.forEach(function(entry){ //for each entry
+        this.orderedEntries.forEach(function(entry){ //for each entry
           var totalOrg = 0;
           entry.sorto = totalOrg;
           for(var answer in entry){
@@ -92,26 +96,12 @@ var vm = new Vue({
           //console.log('total '+grandTotal)
           $('#textTotal').text(grandTotal);
         });
+        //this.$forceUpdate();
       },
       hideQuestions(){
-        console.log("hideQuestions");
-        this.survey.forEach(function(entry){ //for each entry
-          for(var answer in entry){
-            $('#answer'+entry.id+answer).hide();
-          }
-        });
+        $('.answer_row').hide();
       },
-      // highlightId: function(id, question, word){
-      //     _.each(this.survey, function(entry){
-      //       if (id==entry[Short]){
-      //         //todo: somehow reuse the regexp
-      //         var re=new RegExp("("+word+")","gi");
-      //         //todo: replace with match so the case is not low
-      //         entry[question] = entry[question].replace(re,'<span class="highlight">$1</span>');
-      //       }
-      //     });
-      //   },
-        getPar: function(q,s){
+      getPar: function(q,s){
           s = s ? s : window.location.search;
           var re = new RegExp('&' + q + '(?:=([^&]*))?(?=&|$)', 'i');
           return (s = s.replace(/^\?/, '&').match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;

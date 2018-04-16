@@ -152,7 +152,8 @@
                <div class="col-md-12">
                   <template v-for="entry in orderedEntries">
                     <div v-bind:id='entry.Short'>
-                      <button @click="filterOrg(entry.id)" :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'" :disabled="entry.sorto<=0">
+                      <!-- <button @click="filterOrg(entry.id)" :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'" :disabled="entry.sorto<=0"> -->
+                      <button :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'" disabled>
                         {{entry.Short}} <span class="badge badge-light" :id="'badge'+ entry.id" >{{entry.sorto}}</span>
                         <span class="sr-only">occurences found</span>
                       </button>
@@ -170,7 +171,7 @@
                         <h3 class="org_name">{{entry.Short}}</h3>
                        </div>
                        <div class="col-10">
-                         <h3 >{{questionName(question).length>100?questionName(question).substring(0,100)+"...":questionName(question)}}</h3>
+                         <h3>{{questionName(question).length>100?questionName(question).substring(0,100)+"...":questionName(question)}}</h3>
                          <p>
                          <div class="answer_text" :id="'answertext'+entry.id+question"></div>
                          </p>

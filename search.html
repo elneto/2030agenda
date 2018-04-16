@@ -171,7 +171,7 @@
                 <div :id="'answer'+entry.id+question" v-show=0 class="answer_row"  data-toggle="modal" data-target="#ModalAnswer" @click="writeModal(entry.id,question)">
                     <div class="row">
                       <div class="col-2 text-center">
-                        <img class="img-fluid alogo" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
+                        <img class="img-fluid" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
                         <h3 class="org_name">{{entry.Short}}</h3>
                        </div>
                        <div class="col-10">

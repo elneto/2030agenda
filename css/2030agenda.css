@@ -167,7 +167,7 @@ a#menu-toggle2 {
 
 .btn-primary, .btn-secondary, .btn-success {
   float: left;
-  margin: 0 5px 0 0;
+  margin: 0 5px 5px 0;
 }
 
 p#grand_total {

@@ -129,7 +129,7 @@ var vm = new Vue({
         },
         getJson: function(){
           var _this = this;
-          $.getJSON('survey_results_min.json',function(res){
+          $.getJSON('surveyv.json',function(res){
             _this.survey = res;
           }).done(function() {
             console.log( "survey results loaded" );

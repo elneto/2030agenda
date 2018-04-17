@@ -102,7 +102,7 @@
       </div>
     </div>
   </div>
-  <main role="main" class="container">
+  <main role="main" class="container" id="vue-orgs">
     <div class="row">
       <div class="col-md-4">
         <div class="info-paragraph">
@@ -125,52 +125,18 @@
     <br>
     <div class="row">
       <div class="col-md-4">
-        <div class="list-group orgs">
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_62.jpg" ><strong>ECLAC</strong> - Economic Commission for Latin America and the Caribbean</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_53.jpg" ><strong>FAO</strong> - Food and Agriculture Organization of the United Nations</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_270.jpg" ><strong>GEF</strong> - Global Environment Facility</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_272.jpg" ><strong>ICAO</strong> - 	International Civil Aviation Organization</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_56.jpg" ><strong>ILO</strong> -	International Labour Organization</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_274.jpg" ><strong>IMF</strong> - International Monetary Fund</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_273.jpg" ><strong>IFAD</strong> - International Fund for Agricultural Development</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_295.jpg" ><strong>ITU</strong> - International Telecommunication Union</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_276.jpg" ><strong>OHCHR</strong> - Office of the High Commissioner for Human Rights</a>
-          <!-- <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_62.jpg" ><strong>SUN</strong> - Scaling Up Nutrition (SUN) Movement</a> -->
-          <!-- <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_65.jpg" ><strong>CBD</strong> - Secretariat Convention Biological Diversity</a> -->
-          <a href="organization.html?org=cbd" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_65.jpg" ><strong>CBD</strong> - Secretariat of the Convention on Biological Diversity</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_68.jpg" ><strong>ESCWA</strong> - UN Economic and Social Commission for Western Asia</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_1189.jpg" ><strong>UNISDR</strong> - UN Office for Disaster Risk Reduction</a>
+        <div class="list-group orgs" v-for="entry, index in survey" v-if="index <= 11">
+          <a :href="'organization.html?org='+entry.Short" class="list-group-item list-group-item-action"><img class="picSmall" :src="'https://sustainabledevelopment.un.org/content/images/flag6_' + entry.respondent_nr + '.jpg'" ><strong>{{entry.Short}}</strong> - {{entry.Organization}}</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="list-group orgs">
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_72.jpg" ><strong>UN Women</strong> - United Nations Entity for Gender Equality and the Empowerment of Women</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_70.jpg" ><strong>UN-Habitat</strong> - United Nations Human Settlements Programme</a>
-          <a href="organization.html?org=unaids" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_54.jpg" ><strong>UNAIDS</strong> - Joint United Nations Programme on HIV/AIDS</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_1148.jpg" ><strong>UNCDF</strong> - UN Capital Development Fund</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_66.jpg" ><strong>UNESCAP</strong> - Economic and Social Commission for Asia and the Pacific</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_269.jpg" ><strong>UNFPA</strong> - United Nations Population Fund</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_279.jpg" ><strong>UNHCR</strong> - United Nations High Commissioner for Refugees</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_277.jpg" ><strong>UNICEF</strong> - United Nations Children's Fund</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_280.jpg" ><strong>UNITAR</strong> - United Nations Institute for Training and Research</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_64.jpg" ><strong>UNEP</strong> - United Nations Environment Programme</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_71.jpg" ><strong>UNIDO</strong> - United Nations Industrial Development Organization</a>
-
+        <div class="list-group orgs" v-for="entry, index in survey" v-if="index > 11 && index < 24">
+          <a :href="'organization.html?org='+entry.Short" class="list-group-item list-group-item-action"><img class="picSmall" :src="'https://sustainabledevelopment.un.org/content/images/flag6_' + entry.respondent_nr + '.jpg'" ><strong>{{entry.Short}}</strong> - {{entry.Organization}}</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="list-group orgs">
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_294.jpg" ><strong>UNOOSA</strong> - United Nations Office for Outer Space Affairs</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_283.jpg" ><strong>UNODC</strong> - United Nations Office on Drugs and Crime</a>
-          <a href="organization.html?org=upu" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_288.jpg" ><strong>UPU</strong> - Universal postal union</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_74.jpg" ><strong>UNOHRLLS</strong> - Office of the High Representative for the Least Developed Countries, Landlocked Developing Countries and Small Island Developing States</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_996.jpg" ><strong>UNOPS</strong> - United Nations Office for Project Services</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_73.jpg" ><strong>UNRISD</strong> - United Nations Research Institute for Social Development</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_75.jpg" ><strong>WFP</strong> - United Nations World Food Programme</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_76.jpg" ><strong>World Bank Group</strong></a>
-          <a href="organization.html?org=who" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_77.jpg" ><strong>WHO</strong> - World Health Organization</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://sustainabledevelopment.un.org/content/images/flag6_289.jpg" ><strong>WIPO</strong> - World Intellectual Property Organization</a>
-          <a href="#" class="list-group-item list-group-item-action"><img class="picSmall" src="https://www.wto.org/images/wtomenus/logo_en.gif" ><strong>WTO</strong> - World Trade Organization</a>
+        <div class="list-group orgs" v-for="entry, index in survey" v-if="index >= 24">
+          <a :href="'organization.html?org='+entry.Short" class="list-group-item list-group-item-action"><img class="picSmall" :src="'https://sustainabledevelopment.un.org/content/images/flag6_' + entry.respondent_nr + '.jpg'" ><strong>{{entry.Short}}</strong> - {{entry.Organization}}</a>
         </div>
       </div>
     </div>

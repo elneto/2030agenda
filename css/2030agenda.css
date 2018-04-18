@@ -133,11 +133,51 @@ main.container {
   margin-top: 4px;
 }
 
+.info-paragrapht {
+  font-size: 22px;
+  font-family: oswald;
+  color: #444;
+  font-weight: 300;
+  display: block;
+  line-height: 1.7em;
+}
+
 .info-paragraph {
   font-size: 22px;
   font-family: oswald;
-  color: #999;
+  color: #777;
   font-weight: 300;
+  display: block;
+  line-height: 1.7em;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,00adef+90 */
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #ffffff 0%, #00adef 423%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #ffffff 0%, #00adef 423%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #ffffff 0%, #00adef 423%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00adef', GradientType=1);
+  /* IE6-9 */
+}
+
+.info-paragraph p {
+  font-size: inherit;
+}
+
+section#intro-text {
+  margin-top: 0.9em;
+  padding: 3em 0;
+}
+
+section.module.parallax {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  background-image: url("../img/od2.jpg");
 }
 
 a.list-group-item, a.list-group-item:hover {

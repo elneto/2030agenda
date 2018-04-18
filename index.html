@@ -56,7 +56,7 @@
                <div id="notificationbox" class="notificationbox"></div> -->
         <div class="col-md-12">
           <a href="/"><img id="unLogo" src="https://sustainabledevelopment.un.org/content/partnershipcss/unlogo.png" class="unLogo"></a>
-          <div class="unTitle">UN SYSTEM FOR THE SDGS</div>
+          <div class="unTitle">UN SYSTEM SDGS ACTION DATABASE</div>
           <div class="unSubTitle">Online database of implementation of the SDGs by the UN System</div>
         </div>
       </div>
@@ -102,19 +102,25 @@
       </div>
     </div>
   </div>
-  <main role="main" class="container" id="vue-orgs">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="info-paragraph">
-          The UN System for SDGs online database is the United Nations' repository of actions, good practices and plans on the implementation of the Sustainable Development Goals.
-          <br>[<a href="#">Read more</a>]
-        </div>
-      </div>
+  <section class="module parallax" id="intro-text">
+    <div class="container_empty">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="info-paragrapht">
+            The UN System SDGs action online database is the UN family’s repository of actions, initiatives and plans on the implementation of the 2030 Agenda and the sustainable development goals (SDGs). It contains information made available by UN system entities.
+            It is searchable and is regularly updated. It serves as a useful reference tool for learning about what UN system entities have been doing in support of the implementation of the 2030 Agenda and the sustainable development goals (SDGs).
 
-      <div class="col-md-8">
-        <img src="img/map.png" alt="world map" class="img-fluid">
+          </div>
+        </div>
+
+        <!-- <div class="col-md-1">
+      <img src="img/map.png" alt="world map" class="img-fluid">
+    </div> -->
       </div>
     </div>
+  </section>
+  <main role="main" class="container" id="vue-orgs" style="margin-top:0;">
+
     <div class="row">
       <div class="col-md-12">
 
@@ -176,11 +182,15 @@
       </div>
       <div class="col-md-6">
         <div class="info-paragraph">
-          On December 2017, the Department of Economic and Social Affairs (DESA) invited the member entities of the Executive Committee on Economic and Social Affairs, as well as UN Conventions secretariats and research institutions (ECESA Plus), to undertake a
-          survey on the implementation of the 2030 Agenda and the sustainable development goals (SDGs). The information thus provided will serve as input to the Secretary-General’s report on sustainable development, to be submitted to the General Assembly,
-          through the Economic and Social Council, including for the consideration of the high-level political forum on sustainable development, as requested by the General Assembly in resolution 72/216. Additionally, the submissions can be used as a
-          reference and analytical tool for identifying key elements of a possible Roadmap of UN system organizations on the 2030 Agenda and the SDGs, under the guidance of the Secretary-General.
-          <br>[<a href="#">Read more</a>]
+          <p>In December 2017, the Department of Economic and Social Affairs (DESA) invited the member entities of the Executive Committee on Economic and Social Affairs, as well as UN Conventions secretariats and research institutions (ECESA Plus), to undertake
+            a survey on the implementation of the 2030 Agenda and the sustainable development goals (SDGs). The information thus provided serves as input to the Secretary-General’s reports on sustainable development, to be submitted to the General Assembly,
+            through the Economic and Social Council, including for the consideration of the high-level political forum on sustainable development (HLPF), as requested by the General Assembly in resolution 72/216.</p>
+          <p>Additionally, the submissions can be used as a reference and analytical tool for identifying good practices, lessons learned, emerging gaps, as well as key elements of a possible Roadmap of UN system organizations on the 2030 Agenda and the
+            SDGs, under the guidance of the Secretary-General.</p>
+          <p>The database contains information on decisions or new strategies taken by intergovernmental bodies to guide the implementation of the 2030 Agenda and the SDGs, specific actions and initiatives by UN family entities, including their contributions
+            to the HLPF. The database also allows for a searchable overview of collaborative initiatives by UN organizations, their support to countries, and their views on a strategic plan of the UN system in support of the 2030 Agenda and the SDGs.</p>
+          <p>We hope users will find the database useful and we welcome feedback and suggestions. Please send your queries and suggestions to <a href="http://sustainabledevelopment.un.org/contact" target="_blank">our contact form</a>.</p>
+          <!-- <br>[<a href="#">Read more</a>] -->
         </div>
       </div>
     </div>
@@ -228,6 +238,7 @@
       $("#topBarArea").attr("class", "topBarArea_small");
       $("#menuBarArea_sub").attr("class", "menuBarArea_sub_small");
       $("#icons").attr("class", "icons_small");
+      $(".top").hide();
     }
   });
   $(document).scroll(function() {
@@ -241,6 +252,7 @@
       $("#topBarArea").attr("class", "topBarArea");
       $("#menuBarArea").attr("class", "menuBarArea");
       $("#menuBarArea_sub").attr("class", "menuBarArea_sub");
+      $(".top").show();
     }
   });
 

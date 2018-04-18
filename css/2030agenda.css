@@ -240,3 +240,7 @@ h3.org_name {
 .modal-lg {
   max-width: 931px;
 }
+
+.unSubTitle {
+  letter-spacing: 1px;
+}

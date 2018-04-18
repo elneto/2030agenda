@@ -149,20 +149,29 @@
     <br>
     <div class="row">
       <div class="col-md-6">
-        <div class="list-group orgs" id="questions-accordion">
-          <a href="questions.html?q=q1" class="list-group-item list-group-item-action"><strong>1) Decisions or new strategies to guide the implementation of the 2030 Agenda and the SDGs</strong></a>
-          <a href="#" id="q2" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2"><strong>2) Follow-up to the 2030 Agenda and the SDGs</strong><i class="fa fa-chevron-circle-down fasome"></i></a>
-          <div id="collapse2" class="collapse" aria-labelledby="q2" data-parent="#q2">
-            <a href="questions.html?q=q2_1" class="list-group-item list-group-item-action">SDG-specific strategies, plans or work programmes</a>
-          </div>
-          <a href="#" id="q3" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3"><strong>3) Normative, analytical, technical assistance or capacity building to countries</strong></a>
-          <a href="#" id="q4" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4"><strong>4) HLPF related work</strong></a>
-          <a href="#" class="list-group-item list-group-item-action accordion-toggle"><strong>5) Cooperation with other UN system organizations.</strong></a>
-          <a href="#" class="list-group-item list-group-item-action accordion-toggle"><strong>6) Engagement with stakeholder groups</strong></a>
-          <a href="#" class="list-group-item list-group-item-action accordion-toggle"><strong>7) Organization of conferences, forums or events designed to facilitate exchange of experience, peer and mutual learning.</strong></a>
-          <a href="#" class="list-group-item list-group-item-action accordion-toggle"><strong>8) Impact assessment or evaluation reports.</strong></a>
-          <a href="#" class="list-group-item list-group-item-action accordion-toggle"><strong>9) What should a strategic plan for the UN system in support of the 2030 Agenda and SDGs look like?</strong></a>
-          <a href="#" class="list-group-item list-group-item-action accordion-toggle"><strong>10) Endeavor or initiatives that the UN system organizations could undertake together to support the implementation of the SDGs between now and 2030</strong></a>
+        <div class="list-group" id="questions-accordion" v-for="question, key in questions" v-if="key=='q1'">
+          <a :href="'questions.html?q='+key" class="list-group-item list-group-item-action"><strong>{{question}}</strong></a>
+        </div>
+        <a href="#" id="q2" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2"><strong>{{questionName('q2')}}</strong><i class="fa fa-chevron-circle-down fasome"></i></a>
+        <div id="collapse2" class="collapse" aria-labelledby="q2" data-parent="#q2">
+          <template v-for="q, k in questions" v-if="k.indexOf('q2_') != -1">
+            <a :href="'questions.html?q='+k" class="list-group-item list-group-item-action">{{q}}</a>
+          </template>
+        </div>
+        <a href="#" id="q3" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3"><strong>{{questionName('q3')}}</strong><i class="fa fa-chevron-circle-down fasome"></i></a>
+        <div id="collapse3" class="collapse" aria-labelledby="q3" data-parent="#q3">
+          <template v-for="q, k in questions" v-if="k.indexOf('q3_') != -1">
+            <a :href="'questions.html?q='+k" class="list-group-item list-group-item-action">{{q}}</a>
+          </template>
+        </div>
+        <a href="#" id="q4" class="list-group-item list-group-item-action accordion-toggle" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4"><strong>{{questionName('q4')}}</strong><i class="fa fa-chevron-circle-down fasome"></i></a>
+        <div id="collapse4" class="collapse" aria-labelledby="q4" data-parent="#q4">
+          <template v-for="q, k in questions" v-if="k.indexOf('q4_') != -1">
+            <a :href="'questions.html?q='+k" class="list-group-item list-group-item-action">{{q}}</a>
+          </template>
+        </div>
+        <div class="list-group" id="questions-accordion" v-for="question, key in questions" v-if="key=='q5' || key=='q6' || key=='q7' || key=='q8' || key=='q9' || key=='q10' || key=='docs'">
+          <a :href="'questions.html?q='+key" class="list-group-item list-group-item-action"><strong>{{question}}</strong></a>
         </div>
       </div>
       <div class="col-md-6">

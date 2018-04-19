@@ -110,16 +110,18 @@
     <br>
     <template v-for="entry in survey" v-if="entry[getQ()] != ''">
       <div v-bind:id='entry["Short"]'>
-        <div class="row">
-          <div clas="col-1">
+        <br>
+        <div class="row h-100">
+          <div class="col-2">
             <img :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" class="img-fluid alogo" alt="logo">
           </div>
-           <div clas="col-11">
-             <h4>{{entry.Organization}}</h4>
+           <div class="col-10 my-auto">
+             <h4>{{entry.Short}} - {{entry.Organization}}</h4>
            </div>
          </div>
+         <br>
          <div class="row">
-            <div clas="col-12">
+            <div class="col-12">
              <p v-html="entry[getQ()]"></p>
            </div>
          </div>

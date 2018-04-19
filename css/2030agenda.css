@@ -34,7 +34,7 @@ h1 {
 }
 
 h1, h2, h3 {
-  color: #222222;
+  color: #555;
   margin-bottom: 10px;
   font-size: 2em;
   font-family: 'Oswald', sans-serif;
@@ -49,9 +49,14 @@ h3 {
   color: #444;
 }
 
+.h4, h4 {
+  font-size: 1.2em;
+  color: #555;
+}
+
 h5 {
   font-size: 0.9em;
-  color: #444;
+  color: #555;
 }
 
 p {
@@ -88,10 +93,6 @@ section.module.parallax h3 {
   font-family: "Rubik", sans-serif;
   color: white;
   font-weight: 400;
-}
-
-.h4, h4 {
-  font-size: 1.2em;
 }
 
 #sdgwheel {

@@ -108,7 +108,7 @@
       </div>
     </div>
     <br>
-    <template v-for="entry in survey">
+    <template v-for="entry in survey" v-if="entry[getQ()] != ''">
       <div v-bind:id='entry["Short"]'>
         <div class="row">
           <div clas="col-1">

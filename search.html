@@ -156,8 +156,8 @@
             <p id="grand_total">Total: <span id="textTotal">0</span></p>
           </div>
           <div class="col-md-6">
-            <button @click="showAll('')" type="button" class="btn btn-outline-info float-lg-right float-sm-left">Show None</button>
-            <button @click="showAll(1)" type="button" class="btn btn-info float-lg-right float-sm-left">Show All</button>
+            <button @click="showAll('')" type="button" class="btn btn-sm btn-outline-info float-lg-right float-sm-left">Show None</button>
+            <button @click="showAll(1)" type="button" class="btn btn-sm btn-info float-lg-right float-sm-left">Show All</button>
           </div>
         </div>
 
@@ -165,7 +165,7 @@
           <div class="col-md-12">
             <template v-for="entry in orderedEntries">
                     <div v-bind:id='entry.Short'>
-                      <button @click="toggleOrg(entry.id)" type="button" class="btn" :class="(entry.showO==1 && entry.sorto>0)?'btn-success':'btn-outline-success'" :disabled="entry.sorto<=0">
+                      <button @click="toggleOrg(entry.id)" type="button" class="btn btn-sm" :class="(entry.showO==1 && entry.sorto>0)?'btn-success':'btn-outline-success'" :disabled="entry.sorto<=0">
                       <!-- <button :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'" disabled> -->
                         {{entry.Short}} <span class="badge badge-light" >{{entry.sorto}}</span>
                         <span class="sr-only">occurences found</span>

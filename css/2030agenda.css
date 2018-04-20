@@ -190,8 +190,12 @@ form.navbar-form .btn {
   margin: 0;
 }
 
-.btn:hover {
+.input-group-append .btn:hover {
   font-size: inherit;
+}
+
+.btn-sm, .btn-sm:hover {
+  font-size: .875rem;
 }
 
 input {

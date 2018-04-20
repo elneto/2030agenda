@@ -3,11 +3,12 @@ var vm = new Vue({
   data: {
     search: '',
     survey: null,
+    excerpt: null,
     questions: null,
   },
   computed: {
     orderedEntries: function() {
-      return _.orderBy(this.survey, ['sorto', 'Short'], ['desc', 'asc']);
+      return _.orderBy(this.excerpt, ['sorto', 'Short'], ['desc', 'asc']);
     }
   },
   watch: {
@@ -21,6 +22,7 @@ var vm = new Vue({
   created: function() {
     this.getJson();
     this.getQuestionsJson();
+    this.getExcerptsJson();
   },
   methods: {
     filterOrg(id) {
@@ -53,10 +55,13 @@ var vm = new Vue({
       return this.questions[q];
     },
     findOccurrences() {
-      this.hideQuestions();
+      //this.hideQuestions();
+      this.clearExcerpts();
+      //todo trim this.search?
       if (this.search === '') {
         //todo change 8 to totalObjects in array
-        this.survey.forEach(function(entry) {
+        this.orderedEntries.forEach(function(entry) {
+          //console.log("entry.sorto "+entry.sorto);
           entry.sorto = 0;
           entry.showO = 1;
         });
@@ -66,27 +71,37 @@ var vm = new Vue({
 
       livesearch = this.search;
       var grandTotal = 0;
-      this.orderedEntries.forEach(function(entry) { //for each entry
+      for (var i=0; i < this.survey.length; i++) { //for each entry
         var totalOrg = 0;
-        entry.sorto = totalOrg;
-        for (var answer in entry) {
-          //entry has the question or key and entry[answer] the actual answer
-          var arr = String(entry[answer]).match(new RegExp(livesearch, "gi"));
-          if (arr) {
-            //arr.length has the number of occurrences of the term searched in this answer
-            $('#answer' + entry.id + answer).show();
-            var left_arr = String(entry[answer]).match(new RegExp("(\\S+\\s+){0,7}" + livesearch, "im"));
-            var right_arr = String(entry[answer]).match(new RegExp(livesearch + "[^\.;]+", "i"));
-            //entry[answer] = "";
-            if (left_arr && right_arr) {
-              var left = left_arr[0].substring(0, left_arr[0].length - livesearch.length);
-              var right = right_arr[0].substring(livesearch.length);
-              $('#answertext' + entry.id + answer).html("..." + left + " <strong>" + livesearch + "</strong>" + right);
-              //console.log("I found "+ "..."+left +livesearch +right + " IN ENTRY " + entry.id +answer);
+        //console.log("exceprt i:"+this.excerpt[i].Short);
+        this.excerpt[i].sorto = totalOrg;
+        var _this = this;
+        for (var key in this.survey[i]) {
+          if (key.indexOf("q") != -1 || key.indexOf("docs") != -1){
+            //entry has the question or key and entry[answer] the actual answer
+            // console.log("key: "+key);
+            // console.log("answer: "+this.survey[i][key]);
+            let answer = this.survey[i][key];
+            var arr = String(answer).match(new RegExp(livesearch, "gi"));
+            if (arr) {
+              //arr.length has the number of occurrences of the term searched in this answer
+              //$('#answer' + entry.id + answer).show();
+
+              var left_arr = String(answer).match(new RegExp("(\\S+\\s+){0,7}" + livesearch, "im"));
+              var right_arr = String(answer).match(new RegExp(livesearch + "[^\.;]+", "i"));
+              //entry[answer] = "";
+              if (left_arr && right_arr) {
+                var left = left_arr[0].substring(0, left_arr[0].length - livesearch.length);
+                var right = right_arr[0].substring(livesearch.length);
+                //$('#answertext' + entry.id + answer).html("..." + left + " <strong>" + livesearch + "</strong>" + right);
+                //console.log("this.excerpt[i][key]: "+this.excerpt[i][key]);
+                this.excerpt[i][key] = "..." + left + " <strong>" + livesearch + "</strong>" + right;
+                //console.log("I found "+ "..."+left +livesearch +right + " IN ENTRY " + entry.id +answer);
+              }
+              totalOrg += arr.length;
+              this.excerpt[i].sorto = totalOrg;
+              //console.log(entry.Short+" sorto = "+entry.sorto);
             }
-            totalOrg += arr.length;
-            entry.sorto = totalOrg;
-            //console.log(entry.Short+" sorto = "+entry.sorto);
           }
         }
         //console.log(entry.Short + " " + totalOrg);
@@ -100,11 +115,18 @@ var vm = new Vue({
         // }
         //console.log('total '+grandTotal)
         $('#textTotal').text(grandTotal);
-      });
+      } //end foreach
       //this.$forceUpdate();
     },
-    hideQuestions() {
-      $('.answer_row').hide();
+    clearExcerpts() {
+      this.orderedEntries.forEach(function(entry) {
+        for (var k in entry){
+          if (entry.hasOwnProperty(k) && (k.indexOf("q") != -1 || k.indexOf("docs") != -1)) {
+            //console.log("Key is " + k + ", value is" + entry[k]);
+            entry[k] = "";
+          }
+        }
+      });
     },
     getPar: function(q, s) {
       s = s ? s : window.location.search;
@@ -151,6 +173,18 @@ var vm = new Vue({
         .fail(function(jqxhr, textStatus, error) {
           var err = textStatus + ", " + error;
           console.log("Questions.json Request Failed: " + err);
+        });
+    },
+    getExcerptsJson: function() {
+      var _this = this;
+      $.getJSON('excerpts.json', function(res) {
+          _this.excerpt = res;
+        }).done(function() {
+          console.log("excerpts.json loaded");
+        })
+        .fail(function(jqxhr, textStatus, error) {
+          var err = textStatus + ", " + error;
+          console.log("excerpts.json Request Failed: " + err);
         });
     }
   }

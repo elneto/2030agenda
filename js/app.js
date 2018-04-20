@@ -25,13 +25,15 @@ var vm = new Vue({
     this.getExcerptsJson();
   },
   methods: {
-    filterOrg(id) { //shows only the clicked button
-      this.findOccurrences();
+    toggleOrg(id) { //shows only the clicked button
+      //this.findOccurrences();
       this.orderedEntries.forEach(function(entry) {
-        if (entry.id == id)
-          entry.showO = 1;
-        else
-          entry.showO = 0;
+        if (entry.id == id) {
+          if (entry.showO == 1)
+            entry.showO = "";
+          else
+            entry.showO = 1;
+        }
       });
     },
     clearSearch() {
@@ -98,6 +100,11 @@ var vm = new Vue({
             entry[k] = "";
           }
         }
+      });
+    },
+    showAll(val) {
+      this.orderedEntries.forEach(function(entry) {
+        entry.showO = val;
       });
     },
     getPar: function(q, s) {

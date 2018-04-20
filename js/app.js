@@ -3,6 +3,7 @@ var vm = new Vue({
   data: {
     search: '',
     survey: null,
+    surveyhtml: null,
     excerpt: null,
     questions: null,
   },
@@ -21,6 +22,7 @@ var vm = new Vue({
   },
   created: function() {
     this.getJson();
+    this.getHTMLJson();
     this.getQuestionsJson();
     this.getExcerptsJson();
   },
@@ -49,7 +51,8 @@ var vm = new Vue({
       $("#imageModal").attr("src", "https://sustainabledevelopment.un.org/content/images/flagbig6_" + entry.respondent_nr + ".jpg");
     },
     questionName(q) {
-      return this.questions[q];
+      if (this.questions)
+        return this.questions[q];
     },
     findOccurrences() {
       this.clearExcerpts();
@@ -136,6 +139,18 @@ var vm = new Vue({
           _this.survey = res;
         }).done(function() {
           console.log("survey results loaded");
+        })
+        .fail(function(jqxhr, textStatus, error) {
+          var err = textStatus + ", " + error;
+          console.log("Request Failed: " + err);
+        });
+    },
+    getHTMLJson: function() {
+      var _this = this;
+      $.getJSON('surveyhtml.json', function(res) {
+          _this.surveyhtml = res;
+        }).done(function() {
+          console.log("surveyhtml.json loaded");
         })
         .fail(function(jqxhr, textStatus, error) {
           var err = textStatus + ", " + error;

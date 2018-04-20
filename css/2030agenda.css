@@ -206,7 +206,7 @@ a#menu-toggle2 {
   padding: 0 1em;
 }
 
-.btn-primary, .btn-secondary, .btn-success {
+.btn-primary, .btn-secondary, .btn-success, .btn-outline-primary, .btn-outline-secondary, .btn-outline-success {
   float: left;
   margin: 0 5px 5px 0;
 }

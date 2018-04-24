@@ -110,8 +110,26 @@
         <h2 v-html="questionName(getQ())"></h2>
       </div>
     </div>
-    <br>
-    <template v-for="entry in survey" v-if="entry[getQ()] != ''">
+    <div class="row">
+      <div class="col-md-12">
+        <button @click="showAllQuestion('')" type="button" class="btn btn-sm btn-outline-info float-lg-right float-sm-left">Show None</button>
+        <button @click="showAllQuestion(1)" type="button" class="btn btn-sm btn-info float-lg-right float-sm-left">Show All</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <template v-for="entry in surveyhtml">
+                <div v-bind:id='entry.Short'>
+                  <button @click="toggleQuestionOrg(entry.id)" type="button" class="btn btn-sm" :class="entry.showO==1?'btn-success':'btn-outline-success'"  v-if="entry[getQ()] != ''">
+                    {{entry.Short}}
+                  </button>
+                </div>
+              </template>
+      </div>
+    </div>
+    <p>&nbsp;</p>
+    <template v-for="entry in surveyhtml" v-if="entry[getQ()] != '' && entry.showO">
       <div v-bind:id='entry["Short"]'>
         <br>
         <div class="row h-100">

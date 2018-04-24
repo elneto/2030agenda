@@ -38,6 +38,16 @@ var vm = new Vue({
         }
       });
     },
+    toggleQuestionOrg(id) { //shows only the clicked button
+      this.surveyhtml.forEach(function(entry) {
+        if (entry.id == id) {
+          if (entry.showO == 1)
+            entry.showO = "";
+          else
+            entry.showO = 1;
+        }
+      });
+    },
     clearSearch() {
       this.search = "";
     },
@@ -107,6 +117,11 @@ var vm = new Vue({
     },
     showAll(val) {
       this.orderedEntries.forEach(function(entry) {
+        entry.showO = val;
+      });
+    },
+    showAllQuestion(val) {
+      this.surveyhtml.forEach(function(entry) {
         entry.showO = val;
       });
     },

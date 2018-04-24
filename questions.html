@@ -104,6 +104,9 @@
   <main role="main" id="vue-orgs" class="container">
     <div class="row">
       <div class="col-sm-12">
+        <h2 v-if="getQ().indexOf('q2') != -1" v-html="questionName('q2')"></h2>
+        <h2 v-else-if="getQ().indexOf('q3') != -1" v-html="questionName('q3')"></h2>
+        <h2 v-else-if="getQ().indexOf('q4') != -1" v-html="questionName('q4')"></h2>
         <h2 v-html="questionName(getQ())"></h2>
       </div>
     </div>

@@ -43,7 +43,7 @@ var vm = new Vue({
     },
     writeModal(id, q) {
       //alert(id + q);
-      entry = _.find(this.survey, {
+      entry = _.find(this.surveyhtml, {
         'id': id
       });
       $('#ModalAnswerTitle').text(entry.Organization);

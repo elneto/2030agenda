@@ -109,11 +109,11 @@ section.module.parallax h3 {
 }
 
 .menuBottomArea {
-  top: 5.5em;
+  top: 1.8em;
 }
 
 .menuBottomArea_small {
-  top: 3.5em;
+  top: 0.9em;
 }
 
 .picSmall {
@@ -248,4 +248,28 @@ h3.org_name {
 
 .unSubTitle {
   letter-spacing: 1px;
+}
+
+.unSubTitle_small {
+  letter-spacing: 1px;
+}
+
+#desaLogo {
+  height: 55px;
+  top: 25px;
+  position: relative;
+}
+
+#desaLogoSmall {
+  height: 40px;
+  top: 25px;
+  position: relative;
+}
+
+.menuBarArea {
+  top: 44px;
+}
+
+.menuBarArea_small {
+  top: 30px;
 }

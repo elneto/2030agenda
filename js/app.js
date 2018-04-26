@@ -94,7 +94,7 @@ var vm = new Vue({
               if (left_arr && right_arr) {
                 var left = left_arr[0].substring(0, left_arr[0].length - livesearch.length);
                 var right = right_arr[0].substring(livesearch.length);
-                this.excerpt[i][key] = "..." + left + " <strong>" + livesearch + "</strong>" + right;
+                this.excerpt[i][key] = "..." + left + " <strong>" + arr[0] + "</strong>" + right;
               }
               totalOrg += arr.length;
               this.excerpt[i].sorto = totalOrg;

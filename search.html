@@ -167,7 +167,7 @@
                     <div v-bind:id='entry.Short'>
                       <button @click="toggleOrg(entry.id)" type="button" class="btn btn-sm" :class="(entry.showO==1 && entry.sorto>0)?'btn-success':'btn-outline-success'" :disabled="entry.sorto<=0">
                       <!-- <button :id="'btn'+ entry.id" type="button" class="btn" :class="entry.sorto?'btn-success':'btn-secondary'" disabled> -->
-                        {{entry.Short}} <span class="badge badge-light" >{{entry.sorto}}</span>
+                        {{removeUnderscore(entry.Short)}} <span class="badge badge-light" >{{entry.sorto}}</span>
                         <span class="sr-only">occurences found</span>
                       </button>
                     </div>
@@ -181,7 +181,7 @@
                     <div class="row">
                       <div class="col-2 text-center">
                         <img class="img-fluid" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="">
-                        <h3 class="org_name">{{entry.Short}}</h3>
+                        <h3 class="org_name">{{removeUnderscore(entry.Short)}}</h3>
                        </div>
                        <div class="col-10">
                          <h3>{{questionName(question).length>100?questionName(question).substring(0,100)+"...":questionName(question)}}</h3>

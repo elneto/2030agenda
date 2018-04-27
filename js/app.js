@@ -27,6 +27,9 @@ var vm = new Vue({
     this.getExcerptsJson();
   },
   methods: {
+    removeUnderscore(str) {
+      return str.replace("_", " ");
+    },
     toggleOrg(id) { //shows only the clicked button
       //this.findOccurrences();
       this.orderedEntries.forEach(function(entry) {

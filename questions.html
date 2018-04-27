@@ -122,7 +122,7 @@
         <template v-for="entry in surveyhtml">
                 <div v-bind:id='entry.Short'>
                   <button @click="toggleQuestionOrg(entry.id)" type="button" class="btn btn-sm" :class="entry.showO==1?'btn-success':'btn-outline-success'"  v-if="entry[getQ()] != ''">
-                    {{entry.Short}}
+                    {{removeUnderscore(entry.Short)}}
                   </button>
                 </div>
               </template>
@@ -137,7 +137,7 @@
             <img :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" class="img-fluid alogo" alt="logo">
           </div>
            <div class="col-10 my-auto">
-             <h4>{{entry.Short}} - {{entry.Organization}}</h4>
+             <h4>{{removeUnderscore(entry.Short)}} - {{entry.Organization}}</h4>
            </div>
          </div>
          <br>

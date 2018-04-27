@@ -110,7 +110,7 @@
                  <img class="img-fluid" :src="'https://sustainabledevelopment.un.org/content/images/flagbig6_'+ entry.respondent_nr + '.jpg'" alt="" width="180">
               </div>
               <div class="col-sm-10">
-                 <h1>{{entry.Short}}</h1>
+                 <h1>{{removeUnderscore(entry.Short)}}</h1>
                  <h2>{{entry.Organization}}</h2>
               </div>
            </div>

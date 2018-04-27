@@ -10,13 +10,17 @@ body {
 }
 
 .topBarArea {
-  height: 150px;
+  height: 131px;
   z-index: 999;
 }
 
 .topBarArea_small {
-  height: 120px;
+  height: 114px;
   z-index: 999;
+}
+
+.top {
+  top: 2px;
 }
 
 .container_empty {
@@ -133,6 +137,8 @@ main.container {
   font-weight: 300;
   display: block;
   line-height: 1.7em;
+  padding-left: 2.1em;
+  padding-right: 2em;
 }
 
 .info-paragraph {
@@ -160,8 +166,8 @@ main.container {
 }
 
 section#intro-text {
-  margin-top: 0.9em;
-  padding: 3em 0;
+  margin-top: -1em;
+  padding: 2.5em 0;
 }
 
 section.module.parallax {
@@ -239,11 +245,38 @@ h3.org_name {
 }
 
 .unSubTitle {
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
 }
 
 .unSubTitle_small {
+  /* letter-spacing: 1px; */
+}
+
+.unTitle {
+  letter-spacing: 2px;
+}
+
+.unTitle_small {
   letter-spacing: 1px;
+}
+
+.menu_home {
+  padding-left: 0;
+}
+
+.topMiddle {
+  padding-left: 4.4em;
+  margin-top: -0.3em;
+}
+
+#mainlogo_container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#mainlogo_div {
+  margin-left: 0.9em;
+  margin-top: -0.2em;
 }
 
 #desaLogo {
@@ -261,11 +294,11 @@ h3.org_name {
 }
 
 .menuBottomArea {
-  top: 5em;
+  top: 6em;
 }
 
 .menuBottomArea_small {
-  top: 3.3em;
+  top: 5em;
 }
 
 .menuBarArea {
@@ -273,5 +306,5 @@ h3.org_name {
 }
 
 .menuBarArea_small {
-  top: 4.5em;
+  top: 5em;
 }

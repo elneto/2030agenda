@@ -52,18 +52,18 @@
     </div>
   </div>
   <div align="center" id="topBarArea" class="topBarArea">
-    <div align="middle" class="container">
+    <div align="middle" class="container" id="mainlogo_container">
       <div align="left" class="row">
         <!-- <div id="useroption"></div>
                <div id="notificationbox" class="notificationbox"></div> -->
-        <div class="col-md-7">
+        <div class="col-md-12" id="mainlogo_div">
           <a href="/"><img id="unLogo" src="https://sustainabledevelopment.un.org/content/partnershipcss/unlogo.png" class="unLogo"></a>
           <div class="unTitle">UN SYSTEM SDGS ACTION DATABASE</div>
-          <div class="unSubTitle">Online database of implementation of the SDGs by the UN System</div>
+          <div class="unSubTitle">Online database of implementation of the SDGs by the UN System | Managed by <a href="https://www.un.org/development/desa/en/">DESA</a></div>
         </div>
-        <div class="col-md-5">
+        <!-- <div class="col-md-5">
           <a href="https://www.un.org/development/desa/en/" class="float-right"><img id="desaLogo" src="img/undesa_logo2.png"></a>
-        </div>
+        </div> -->
       </div>
       <div id="menuBarArea" class="menuBarArea" align="middle">
         <div class="menuArea">
@@ -74,7 +74,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <a href="index.html">
-                  <div class="menu">Home</div>
+                  <div class="menu menu_home">Home</div>
                 </a>
                 <a href="index.html#organizations">
                   <div class="menu">Organizations</div>
@@ -104,7 +104,7 @@
       </div>
     </div>
   </div>
-  <br>
+
   <main role="main" id="vue-orgs">
     <!-- change to surveyhtml when is done -->
     <template v-for="entry in surveyhtml" v-if="entry.Short == getOrg()">
@@ -119,7 +119,7 @@
               </div>
            </div>
         </div>
-        <br>
+        
         <div class="container">
           <template v-for="(answer, question) in entry" v-if="question != 'id' && question != 'sorto' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
             <br>

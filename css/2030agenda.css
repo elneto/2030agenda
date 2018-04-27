@@ -121,9 +121,9 @@ section.module.parallax h3 {
   font-size: medium;
 }
 
-main.container {
+/* main.container {
   margin-top: 1em;
-}
+} */
 
 .fasome {
   float: right;
@@ -280,15 +280,15 @@ h3.org_name {
 }
 
 #desaLogo {
-  width: 10em;
+  height: 55px;
   top: 25px;
   right: 0;
   position: absolute;
 }
 
 #desaLogoSmall {
-  width: 7em;
-  top: 25px;
+  width: 40px;
+  top: 18px;
   right: 0;
   position: absolute;
 }
@@ -307,4 +307,19 @@ h3.org_name {
 
 .menuBarArea_small {
   top: 5em;
+}
+
+@media (max-width: 660px) {
+  .unSubTitle, .unSubTitle_small {
+    width: 28em;
+  }
+  #desaLogo {
+    height: 25px;
+  }
+  #desaLogoSmall {
+    width: 25px;
+    top: 14px;
+    right: 0;
+    position: absolute;
+  }
 }

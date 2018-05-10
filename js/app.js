@@ -153,7 +153,7 @@ var vm = new Vue({
     },
     getJson: function() {
       var _this = this;
-      $.getJSON('surveyv.json', function(res) {
+      $.getJSON('/api1/unsurveyjson.php', function(res) {
           _this.survey = res;
         }).done(function() {
           console.log("survey results loaded");
@@ -165,7 +165,7 @@ var vm = new Vue({
     },
     getHTMLJson: function() {
       var _this = this;
-      $.getJSON('surveyhtml.json', function(res) {
+      $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
           _this.surveyhtml = res;
         }).done(function() {
           console.log("surveyhtml.json loaded");

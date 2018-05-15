@@ -55,9 +55,8 @@ var vm = new Vue({
       this.search = "";
     },
     writeModal(id, q) {
-      //alert(id + q);
-      entry = _.find(this.surveyhtml, {
-        'id': id
+      var entry = _.find(this.surveyhtml, {
+        'id': String(id)
       });
       $('#ModalAnswerTitle').text(entry.Organization);
       $('#modalBody').html("<h5>" + this.questionName(q) + "</h5><p>" + entry[q] + "</p>");
@@ -154,6 +153,7 @@ var vm = new Vue({
     getJson: function() {
       var _this = this;
       $.getJSON('/api1/unsurveyjson.php', function(res) {
+          //$.getJSON('surveyv.json', function(res) {
           _this.survey = res;
         }).done(function() {
           console.log("survey results loaded");
@@ -166,6 +166,7 @@ var vm = new Vue({
     getHTMLJson: function() {
       var _this = this;
       $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
+          //$.getJSON('surveyhtml.json', function(res) {
           _this.surveyhtml = res;
         }).done(function() {
           console.log("surveyhtml.json loaded");
@@ -189,7 +190,8 @@ var vm = new Vue({
     },
     getExcerptsJson: function() {
       var _this = this;
-      $.getJSON('excerpts.json', function(res) {
+      $.getJSON('/api1/unsurveyblank.php', function(res) {
+          //$.getJSON('excerpts.json', function(res) {
           _this.excerpt = res;
         }).done(function() {
           console.log("excerpts.json loaded");

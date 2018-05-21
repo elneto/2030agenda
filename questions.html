@@ -104,10 +104,10 @@
   <main role="main" id="vue-orgs" class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h2 v-if="getQ().indexOf('q2') != -1" v-html="questionName('q2')"></h2>
-        <h2 v-else-if="getQ().indexOf('q3') != -1" v-html="questionName('q3')"></h2>
-        <h2 v-else-if="getQ().indexOf('q4') != -1" v-html="questionName('q4')"></h2>
-        <h2 v-html="questionName(getQ())"></h2>
+        <h2 v-if=" getParameter('q').indexOf('q2') != -1" v-html="questionName('q2')"></h2>
+        <h2 v-else-if=" getParameter('q').indexOf('q3') != -1" v-html="questionName('q3')"></h2>
+        <h2 v-else-if=" getParameter('q').indexOf('q4') != -1" v-html="questionName('q4')"></h2>
+        <h2 v-html="questionName( getParameter('q'))"></h2>
       </div>
     </div>
     <div class="row" v-show="!loading">
@@ -125,7 +125,7 @@
       <div class="col-md-12">
         <template v-for="entry in surveyhtml">
                 <div v-bind:id='entry.Short'>
-                  <button @click="toggleQuestionOrg(entry.id)" type="button" class="btn btn-sm" :class="entry.showO==1?'btn-success':'btn-outline-success'"  v-if="entry[getQ()] != ''">
+                  <button @click="toggleQuestionOrg(entry.id)" type="button" class="btn btn-sm" :class="entry.showO==1?'btn-success':'btn-outline-success'"  v-if="entry[ getParameter('q')] != ''">
                     {{removeUnderscore(entry.Short)}}
                   </button>
                 </div>
@@ -133,7 +133,7 @@
       </div>
     </div>
     <p>&nbsp;</p>
-    <template v-for="entry in surveyhtml" v-if="entry[getQ()] != '' && entry.showO">
+    <template v-for="entry in surveyhtml" v-if="entry[ getParameter('q')] != '' && entry.showO">
       <div v-bind:id='entry["Short"]'>
         <br>
         <div class="row h-100">
@@ -147,7 +147,7 @@
          <br>
          <div class="row">
             <div class="col-12">
-             <p v-html="entry[getQ()]"></p>
+             <p v-html="entry[ getParameter('q')]"></p>
            </div>
          </div>
      </div>

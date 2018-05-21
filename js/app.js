@@ -133,21 +133,12 @@ var vm = new Vue({
       var re = new RegExp('&' + q + '(?:=([^&]*))?(?=&|$)', 'i');
       return (s = s.replace(/^\?/, '&').match(re)) ? (typeof s[1] == 'undefined' ? '' : decodeURIComponent(s[1])) : undefined;
     },
-    getOrg: function() {
-      var org = this.getPar('org');
+    getParameter: function(name) {
+      let p = this.getPar(name);
 
-      if (typeof org !== 'undefined' && org !== null) {
-        org = org.replace(/\+/g, " ");
-        return org.toUpperCase();
-      }
-      return "";
-    },
-    getQ: function() {
-      var org = this.getPar('q');
-
-      if (typeof org !== 'undefined' && org !== null) {
-        org = org.replace(/\+/g, " ");
-        return org.toLowerCase();
+      if (typeof p !== 'undefined' && p !== null) {
+        p = p.replace(/\+/g, " ");
+        return name === 'q' ? p.toLowerCase() : p;
       }
       return "";
     },

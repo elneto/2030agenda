@@ -107,7 +107,7 @@
         <img src="https://sustainabledevelopment.un.org/content/images/loader.gif" alt="loading">
       </div>
     </div>
-    <template v-for="entry in surveyhtml" v-if="entry.Short == getOrg()">
+    <template v-for="entry in surveyhtml" v-if="entry.Short == getParameter('org').toUpperCase()">
         <div class="container">
            <div class="row">
               <div class="col-sm-2">

@@ -67,9 +67,8 @@ var vm = new Vue({
       if (this.questions)
         return this.questions[q];
     },
-    findOccurrences() {
+    findOccurrences(s) {
       this.clearExcerpts();
-      var s = this.getParameter('s');
       //todo trim this.search?
       if (s) {
         this.search = s;

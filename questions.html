@@ -110,13 +110,17 @@
         <h2 v-html="questionName(getQ())"></h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row" v-show="!loading">
       <div class="col-md-12">
         <button @click="showAllQuestion('')" type="button" class="btn btn-sm btn-outline-info float-lg-right float-sm-left">Show None</button>
         <button @click="showAllQuestion(1)" type="button" class="btn btn-sm btn-info float-lg-right float-sm-left">Show All</button>
       </div>
     </div>
-
+    <div class="row" v-show="loading">
+      <div class="col-md-12 text-center">
+        <img src="https://sustainabledevelopment.un.org/content/images/loader.gif" alt="loading">
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12">
         <template v-for="entry in surveyhtml">

@@ -134,7 +134,7 @@
       </div>
 
       <main role="main" id="vue-orgs" class="container">
-        <div class="row">
+        <div class="row" v-show="!loading">
           <div class="col-md-12">
             <form class="navbar-form" role="search">
               <div class="input-group mb-3">
@@ -151,7 +151,7 @@
           <!-- /.col-md-12 -->
         </div>
 
-        <div class="row">
+        <div class="row" v-show="!loading">
           <div class="col-md-6">
             <p id="grand_total">Total: <span id="textTotal">0</span></p>
           </div>
@@ -161,7 +161,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" v-show="!loading">
           <div class="col-md-12">
             <template v-for="entry in orderedEntries">
                     <div v-bind:id='entry.Short'>
@@ -175,6 +175,11 @@
           </div>
         </div>
         <p>&nbsp;</p>
+        <div class="row" v-show="loading">
+          <div class="col-md-12 text-center">
+            <img src="https://sustainabledevelopment.un.org/content/images/loader.gif" alt="loading">
+          </div>
+        </div>
         <template v-for="entry in orderedEntries" v-if="entry != ''">
               <template v-for="answer, question in entry" v-if="question != 'id' && question != 'sorto' && question != 'showO' && question != 'Organization' && question != 'Short' && question != 'respondent_nr'">
                 <div :id="'answer'+entry.id+question" v-show="answer != '' && entry.showO" class="answer_row"  data-toggle="modal" data-target="#ModalAnswer" @click="writeModal(entry.id,question)">

@@ -6,6 +6,7 @@ var vm = new Vue({
     surveyhtml: null,
     excerpt: null,
     questions: null,
+    loading: 0
   },
   computed: {
     orderedEntries: function() {
@@ -151,11 +152,13 @@ var vm = new Vue({
       return "";
     },
     getJson: function() {
+      this.loading += 1;
       var _this = this;
       $.getJSON('/api1/unsurveyjson.php', function(res) {
           //$.getJSON('surveyv.json', function(res) {
           _this.survey = res;
         }).done(function() {
+          _this.loading -= 1;
           console.log("survey results loaded");
         })
         .fail(function(jqxhr, textStatus, error) {
@@ -164,11 +167,13 @@ var vm = new Vue({
         });
     },
     getHTMLJson: function() {
+      this.loading += 1;
       var _this = this;
       $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
           //$.getJSON('surveyhtml.json', function(res) {
           _this.surveyhtml = res;
         }).done(function() {
+          _this.loading -= 1;
           console.log("surveyhtml.json loaded");
         })
         .fail(function(jqxhr, textStatus, error) {
@@ -177,10 +182,12 @@ var vm = new Vue({
         });
     },
     getQuestionsJson: function() {
+      this.loading += 1;
       var _this = this;
       $.getJSON('questions.json', function(res) {
           _this.questions = res;
         }).done(function() {
+          _this.loading -= 1;
           console.log("questions.json loaded");
         })
         .fail(function(jqxhr, textStatus, error) {
@@ -189,11 +196,13 @@ var vm = new Vue({
         });
     },
     getExcerptsJson: function() {
+      this.loading += 1;
       var _this = this;
       $.getJSON('/api1/unsurveyblank.php', function(res) {
           //$.getJSON('excerpts.json', function(res) {
           _this.excerpt = res;
         }).done(function() {
+          _this.loading -= 1;
           console.log("excerpts.json loaded");
         })
         .fail(function(jqxhr, textStatus, error) {

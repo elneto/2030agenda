@@ -285,5 +285,9 @@
   });
   window.onload = function() {
     $('#search_input').focus();
+    let s = vm.getParameter('s');
+    if (s) {
+      vm.findOccurrences();
+    }
   }
 </script>

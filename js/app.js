@@ -69,6 +69,12 @@ var vm = new Vue({
     },
     findOccurrences() {
       this.clearExcerpts();
+
+      let s = this.getParameter('s');
+      if (s) {
+        this.search = s;
+        window.history.replaceState({}, document.title, "/" + "search.html");
+      }
       //todo trim this.search?
       if (this.search === '') {
         this.orderedEntries.forEach(function(entry) {
@@ -145,8 +151,8 @@ var vm = new Vue({
     getJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyjson.php', function(res) {
-          //$.getJSON('surveyv.json', function(res) {
+      //$.getJSON('/api1/unsurveyjson.php', function(res) {
+      $.getJSON('surveyv.json', function(res) {
           _this.survey = res;
         }).done(function() {
           _this.loading -= 1;
@@ -160,8 +166,8 @@ var vm = new Vue({
     getHTMLJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
-          //$.getJSON('surveyhtml.json', function(res) {
+      //$.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
+      $.getJSON('surveyhtml.json', function(res) {
           _this.surveyhtml = res;
         }).done(function() {
           _this.loading -= 1;
@@ -189,8 +195,8 @@ var vm = new Vue({
     getExcerptsJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyblank.php', function(res) {
-          //$.getJSON('excerpts.json', function(res) {
+      //$.getJSON('/api1/unsurveyblank.php', function(res) {
+      $.getJSON('excerpts.json', function(res) {
           _this.excerpt = res;
         }).done(function() {
           _this.loading -= 1;

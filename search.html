@@ -262,7 +262,11 @@
     $('#search_input').focus();
     let s = vm.getParameter('s');
     if (s) {
-      vm.findOccurrences(s);
+      vm.getExcerptsJson().then(res => {
+        vm.getJson()
+      }).then(res2 => {
+        vm.getHTMLJson()
+      }).then(() => vm.findOccurrences(s));
     }
   }
 </script>

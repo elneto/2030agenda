@@ -72,8 +72,6 @@ var vm = new Vue({
       //todo trim this.search?
       if (s) {
         this.search = s;
-        //window.history.replaceState({}, document.title, "search.html");
-        window.history.replaceState({}, document.title, "https://sustainabledevelopment.un.org/content/unsurvey/search.html");
       } else if (this.search === '') {
         this.orderedEntries.forEach(function(entry) {
           entry.sorto = 0;
@@ -149,7 +147,7 @@ var vm = new Vue({
     getJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyjson.php', function(res) {
+      return $.getJSON('/api1/unsurveyjson.php', function(res) {
           //$.getJSON('surveyv.json', function(res) {
           _this.survey = res;
         }).done(function() {
@@ -164,7 +162,7 @@ var vm = new Vue({
     getHTMLJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
+      return $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
           //$.getJSON('surveyhtml.json', function(res) {
           _this.surveyhtml = res;
         }).done(function() {
@@ -193,7 +191,7 @@ var vm = new Vue({
     getExcerptsJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyblank.php', function(res) {
+      return $.getJSON('/api1/unsurveyblank.php', function(res) {
           //$.getJSON('excerpts.json', function(res) {
           _this.excerpt = res;
         }).done(function() {

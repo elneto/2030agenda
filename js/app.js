@@ -67,13 +67,23 @@ var vm = new Vue({
       if (this.questions)
         return this.questions[q];
     },
+    loadedCompleted(){
+        if (this.loading == 0){
+          return true;
+        }
+        else{
+          console.log('waiting 50');
+          window.setTimeOut(this.loadedCompleted(), 50);
+          //reject('not loaded :(');
+        }
+    },
     findOccurrences(s) {
       this.clearExcerpts();
       //todo trim this.search?
       if (s) {
         this.search = s;
         //window.history.replaceState({}, document.title, "search.html");
-        window.history.replaceState({}, document.title, "https://sustainabledevelopment.un.org/content/unsurvey/search.html");
+        //window.history.replaceState({}, document.title, "https://sustainabledevelopment.un.org/content/unsurvey/search.html");
       } else if (this.search === '') {
         this.orderedEntries.forEach(function(entry) {
           entry.sorto = 0;
@@ -149,8 +159,8 @@ var vm = new Vue({
     getJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyjson.php', function(res) {
-          //$.getJSON('surveyv.json', function(res) {
+      //$.getJSON('/api1/unsurveyjson.php', function(res) {
+          $.getJSON('surveyv.json', function(res) {
           _this.survey = res;
         }).done(function() {
           _this.loading -= 1;
@@ -164,8 +174,8 @@ var vm = new Vue({
     getHTMLJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
-          //$.getJSON('surveyhtml.json', function(res) {
+      //$.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
+          $.getJSON('surveyhtml.json', function(res) {
           _this.surveyhtml = res;
         }).done(function() {
           _this.loading -= 1;
@@ -193,8 +203,8 @@ var vm = new Vue({
     getExcerptsJson: function() {
       this.loading += 1;
       var _this = this;
-      $.getJSON('/api1/unsurveyblank.php', function(res) {
-          //$.getJSON('excerpts.json', function(res) {
+      //$.getJSON('/api1/unsurveyblank.php', function(res) {
+          $.getJSON('excerpts.json', function(res) {
           _this.excerpt = res;
         }).done(function() {
           _this.loading -= 1;

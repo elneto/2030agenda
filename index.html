@@ -156,17 +156,17 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-        <div class="list-group orgs" v-for="entry, index in survey" v-if="index <= 12">
+        <div class="list-group orgs" v-for="entry, index in survey" v-if="index <= 13">
           <a :href="'organization.html?org='+entry.Short" class="list-group-item list-group-item-action"><img class="picSmall" :src="'https://sustainabledevelopment.un.org/content/images/flag6_' + entry.respondent_nr + '.jpg'" ><strong>{{removeUnderscore(entry.Short)}}</strong> - {{entry.Organization}}</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="list-group orgs" v-for="entry, index in survey" v-if="index > 12 && index < 26">
+        <div class="list-group orgs" v-for="entry, index in survey" v-if="index > 13 && index < 27">
           <a :href="'organization.html?org='+entry.Short" class="list-group-item list-group-item-action"><img class="picSmall" :src="'https://sustainabledevelopment.un.org/content/images/flag6_' + entry.respondent_nr + '.jpg'" ><strong>{{removeUnderscore(entry.Short)}}</strong> - {{entry.Organization}}</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="list-group orgs" v-for="entry, index in survey" v-if="index >= 26">
+        <div class="list-group orgs" v-for="entry, index in survey" v-if="index >= 27">
           <a :href="'organization.html?org='+entry.Short" class="list-group-item list-group-item-action"><img class="picSmall" :src="'https://sustainabledevelopment.un.org/content/images/flag6_' + entry.respondent_nr + '.jpg'" ><strong>{{removeUnderscore(entry.Short)}}</strong> - {{entry.Organization}}</a>
         </div>
       </div>

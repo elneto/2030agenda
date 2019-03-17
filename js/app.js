@@ -82,8 +82,11 @@ var vm = new Vue({
       //todo trim this.search?
       if (s) {
         this.search = s;
+<<<<<<< HEAD
         //window.history.replaceState({}, document.title, "search.html");
         //window.history.replaceState({}, document.title, "https://sustainabledevelopment.un.org/content/unsurvey/search.html");
+=======
+>>>>>>> ca55bad81557dce58147938eb584830216152089
       } else if (this.search === '') {
         this.orderedEntries.forEach(function(entry) {
           entry.sorto = 0;
@@ -159,8 +162,13 @@ var vm = new Vue({
     getJson: function() {
       this.loading += 1;
       var _this = this;
+<<<<<<< HEAD
       //$.getJSON('/api1/unsurveyjson.php', function(res) {
           $.getJSON('surveyv.json', function(res) {
+=======
+      return $.getJSON('/api1/unsurveyjson.php', function(res) {
+          //$.getJSON('surveyv.json', function(res) {
+>>>>>>> ca55bad81557dce58147938eb584830216152089
           _this.survey = res;
         }).done(function() {
           _this.loading -= 1;
@@ -174,8 +182,13 @@ var vm = new Vue({
     getHTMLJson: function() {
       this.loading += 1;
       var _this = this;
+<<<<<<< HEAD
       //$.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
           $.getJSON('surveyhtml.json', function(res) {
+=======
+      return $.getJSON('/api1/unsurveyjson.php?html=1', function(res) {
+          //$.getJSON('surveyhtml.json', function(res) {
+>>>>>>> ca55bad81557dce58147938eb584830216152089
           _this.surveyhtml = res;
         }).done(function() {
           _this.loading -= 1;
@@ -203,8 +216,13 @@ var vm = new Vue({
     getExcerptsJson: function() {
       this.loading += 1;
       var _this = this;
+<<<<<<< HEAD
       //$.getJSON('/api1/unsurveyblank.php', function(res) {
           $.getJSON('excerpts.json', function(res) {
+=======
+      return $.getJSON('/api1/unsurveyblank.php', function(res) {
+          //$.getJSON('excerpts.json', function(res) {
+>>>>>>> ca55bad81557dce58147938eb584830216152089
           _this.excerpt = res;
         }).done(function() {
           _this.loading -= 1;

@@ -232,6 +232,7 @@
 <!-- sdkp js -->
 <script type="text/javascript" src="https://sustainabledevelopment.un.org/content/documents/partnerships.js"></script>
 <script type="text/javascript" src="js/custom_mobile.js"></script>
+<<<<<<< HEAD
 <script>
    (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -267,4 +268,37 @@
          }
       }
    }
+=======
+<script src="https://use.fontawesome.com/3d9b9117c2.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+  $("#menu-toggle2").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+  window.onload = function() {
+    $('#search_input').focus();
+    let s = vm.getParameter('s');
+    if (s) {
+      vm.getExcerptsJson().then(res => {
+        vm.getJson()
+      }).then(res2 => {
+        vm.getHTMLJson()
+      }).then(() => vm.findOccurrences(s));
+    }
+  }
+
+  $(document).ready(function() {
+    $(window).keydown(function(event) {
+      if (event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  });
+>>>>>>> ca55bad81557dce58147938eb584830216152089
 </script>
